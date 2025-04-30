@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JOKKUVERSE</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background: linear-gradient(to right, #1e3c72, #2a5298);
+            color: #fff;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        header {
+            padding: 60px 20px;
+            text-align: center;
+            background-color: rgba(0, 0, 0, 0.3);
+        }
+
+        header h1 {
+            font-size: 3rem;
+            margin-bottom: 10px;
+            animation: fadeIn 1s ease-in-out;
+        }
+
+        header p {
+            font-size: 1.2rem;
+            color: #ddd;
+        }
+
+        main {
+            flex: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 40px;
+        }
+
+        .cta {
+            background-color: rgba(255, 255, 255, 0.1);
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+        }
+
+        .cta h2 {
+            font-size: 2rem;
+            margin-bottom: 15px;
+        }
+
+        .cta a {
+            display: inline-block;
+            padding: 12px 25px;
+            margin-top: 10px;
+            font-size: 1rem;
+            text-decoration: none;
+            background-color: #00bcd4;
+            color: #fff;
+            border-radius: 6px;
+            transition: background 0.3s ease;
+        }
+
+        .cta a:hover {
+            background-color: #0097a7;
+        }
+
+        footer {
+            text-align: center;
+            padding: 20px;
+            background-color: rgba(0, 0, 0, 0.2);
+            font-size: 0.9rem;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(-20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Welcome to JOKKUVERSE</h1>
+        <p>Your digital portfolio starts here.</p>
+    </header>
+
+    <main>
+        <div class="cta">
+            <h2>Explore My Work</h2>
+            <p>AI · Robotics · Projects · Demos</p>
+            <a href="#">View Projects</a>
+        </div>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 JOKKUVERSE. All rights reserved.</p>
+    </footer>
+</body>
+</html>
