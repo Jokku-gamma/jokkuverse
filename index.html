@@ -46,11 +46,19 @@
             padding: 40px;
         }
 
+        .cta-container {
+            display: flex;
+            gap: 20px;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
         .cta {
             background-color: rgba(255, 255, 255, 0.1);
             padding: 30px;
             border-radius: 12px;
             box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+            max-width: 400px;
         }
 
         .cta h2 {
@@ -94,11 +102,18 @@
     </header>
 
     <main>
-        <div class="cta">
-            <h2>Explore My Work</h2>
-            <p>AI · Robotics · Projects · Demos</p>
-            <a href="projects.html">View Projects</a>
-
+        <div class="cta-container">
+            <div class="cta">
+                <h2>Explore My Work</h2>
+                <p>AI · Robotics · Projects · Demos</p>
+                <a href="projects.html">View Projects</a>
+            </div>
+            
+            <div class="cta">
+                <h2>Have a Project Idea?</h2>
+                <p>Submit your project request for consideration</p>
+                <a href="submit-project.html">Submit Project</a>
+            </div>
         </div>
     </main>
 

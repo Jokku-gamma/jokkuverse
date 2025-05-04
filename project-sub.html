@@ -1,0 +1,431 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Submit Project - JOKKUVERSE</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+    <style>
+        :root {
+            --primary: #00bcd4;
+            --primary-dark: #0097a7;
+            --secondary: #2a5298;
+            --secondary-dark: #1e3c72;
+            --text: #ffffff;
+            --text-light: #dddddd;
+            --bg-dark: rgba(0, 0, 0, 0.3);
+            --bg-light: rgba(255, 255, 255, 0.1);
+            --success: rgba(46, 125, 50, 0.9);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+        body {
+            background: linear-gradient(135deg, var(--secondary-dark), var(--secondary));
+            color: var(--text);
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+            line-height: 1.6;
+        }
+
+        header {
+            padding: 40px 20px;
+            text-align: center;
+            background-color: var(--bg-dark);
+            position: relative;
+            overflow: hidden;
+        }
+
+        header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, var(--primary), var(--secondary));
+        }
+
+        header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+            font-weight: 600;
+            background: linear-gradient(to right, var(--primary), var(--text-light));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            animation: fadeInDown 0.8s ease-out;
+        }
+
+        .back-link {
+            color: var(--primary);
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            margin-bottom: 20px;
+            transition: all 0.3s ease;
+            font-weight: 500;
+        }
+
+        .back-link:hover {
+            transform: translateX(-5px);
+            color: var(--text);
+        }
+
+        .back-link::before {
+            content: '←';
+            margin-right: 8px;
+        }
+
+        main {
+            flex: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 40px 20px;
+            animation: fadeIn 0.8s ease-out;
+        }
+
+        .form-container {
+            background-color: var(--bg-light);
+            padding: 40px;
+            border-radius: 16px;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+            width: 100%;
+            max-width: 650px;
+            backdrop-filter: blur(8px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transform: translateY(0);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .form-container:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 40px rgba(0, 0, 0, 0.4);
+        }
+
+        .form-group {
+            margin-bottom: 25px;
+            animation: fadeInUp 0.6s ease-out;
+        }
+
+        .form-group:nth-child(1) { animation-delay: 0.1s; }
+        .form-group:nth-child(2) { animation-delay: 0.2s; }
+        .form-group:nth-child(3) { animation-delay: 0.3s; }
+        .form-group:nth-child(4) { animation-delay: 0.4s; }
+        .form-group:nth-child(5) { animation-delay: 0.5s; }
+        .form-group:nth-child(6) { animation-delay: 0.6s; }
+        .form-group:nth-child(7) { animation-delay: 0.7s; }
+
+        label {
+            display: block;
+            margin-bottom: 10px;
+            font-weight: 500;
+            color: var(--text-light);
+            font-size: 0.95rem;
+        }
+
+        input, textarea, select {
+            width: 100%;
+            padding: 14px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 8px;
+            background-color: rgba(0, 0, 0, 0.2);
+            color: var(--text);
+            font-size: 1rem;
+            transition: all 0.3s ease;
+        }
+
+        input:focus, textarea:focus, select:focus {
+            outline: none;
+            border-color: var(--primary);
+            box-shadow: 0 0 0 3px rgba(0, 188, 212, 0.2);
+        }
+
+        textarea {
+            min-height: 140px;
+            resize: vertical;
+        }
+
+        button {
+            background-color: var(--primary);
+            color: var(--text);
+            border: none;
+            padding: 14px 30px;
+            font-size: 1rem;
+            font-weight: 600;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 100%;
+            margin-top: 10px;
+        }
+
+        button:hover {
+            background-color: var(--primary-dark);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+        }
+
+        button:active {
+            transform: translateY(0);
+        }
+
+        .recaptcha-note {
+            font-size: 0.8rem;
+            color: var(--text-light);
+            margin-top: 15px;
+            text-align: center;
+        }
+
+        footer {
+            text-align: center;
+            padding: 25px;
+            background-color: var(--bg-dark);
+            font-size: 0.9rem;
+            position: relative;
+        }
+
+        footer::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+        }
+
+        .success-message {
+            display: none;
+            background-color: var(--success);
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 25px;
+            text-align: center;
+            animation: fadeIn 0.5s ease-out;
+        }
+
+        /* Honeypot field */
+        .hp-field {
+            position: absolute;
+            left: -5000px;
+        }
+
+        /* Loading animation */
+        .loader {
+            display: none;
+            width: 20px;
+            height: 20px;
+            border: 3px solid rgba(255,255,255,0.3);
+            border-radius: 50%;
+            border-top-color: var(--text);
+            animation: spin 1s ease-in-out infinite;
+            margin-right: 10px;
+        }
+
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+
+        @media (max-width: 768px) {
+            .form-container {
+                padding: 30px 20px;
+            }
+            
+            header h1 {
+                font-size: 2rem;
+            }
+        }
+    </style>
+    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+</head>
+<body>
+    <header>
+        <a href="index.html" class="back-link">Back to JOKKUVERSE</a>
+        <h1>Submit Your Project Idea</h1>
+        <p>Fill out the form below to submit your project request</p>
+    </header>
+
+    <main>
+        <div class="form-container">
+            <div id="success-message" class="success-message">
+                <h3>Thank you for your submission!</h3>
+                <p>We've received your project request and will review it shortly.</p>
+            </div>
+            
+            <form id="project-form" method="POST">
+                <!-- Honeypot Field -->
+                <div class="hp-field" aria-hidden="true">
+                    <input type="text" name="_honey" tabindex="-1">
+                </div>
+                
+                <!-- CSRF Token (for additional security) -->
+                <input type="hidden" name="_csrf" id="csrf-token">
+                
+                <div class="form-group">
+                    <label for="name">Your Name</label>
+                    <input type="text" id="name" name="name" required placeholder="Enter your full name">
+                </div>
+                
+                <div class="form-group">
+                    <label for="email">Email Address</label>
+                    <input type="email" id="email" name="email" required placeholder="your.email@example.com">
+                </div>
+                
+                <div class="form-group">
+                    <label for="project-name">Project Name</label>
+                    <input type="text" id="project-name" name="project-name" required placeholder="Give your project a name">
+                </div>
+                
+                <div class="form-group">
+                    <label for="project-type">Project Type</label>
+                    <select id="project-type" name="project-type" required>
+                        <option value="">Select a category</option>
+                        <option value="ai">Artificial Intelligence</option>
+                        <option value="robotics">Robotics</option>
+                        <option value="web">Web Development</option>
+                        <option value="mobile">Mobile App</option>
+                        <option value="iot">IoT Solution</option>
+                        <option value="other">Other</option>
+                    </select>
+                </div>
+                
+                <div class="form-group">
+                    <label for="description">Project Description</label>
+                    <textarea id="description" name="description" required placeholder="Describe your project in detail..."></textarea>
+                </div>
+                
+                <div class="form-group">
+                    <label for="budget">Budget Range (if any)</label>
+                    <select id="budget" name="budget">
+                        <option value="none">No budget (just an idea)</option>
+                        <option value="small">Small ($100-$500)</option>
+                        <option value="medium">Medium ($500-$2000)</option>
+                        <option value="large">Large ($2000+)</option>
+                        <option value="undisclosed">Prefer not to say</option>
+                    </select>
+                </div>
+                
+                <div class="form-group">
+                    <label for="timeline">Expected Timeline</label>
+                    <select id="timeline" name="timeline">
+                        <option value="flexible">Flexible</option>
+                        <option value="1month">1 month</option>
+                        <option value="3months">3 months</option>
+                        <option value="6months">6 months</option>
+                        <option value="urgent">Urgent (less than 1 month)</option>
+                    </select>
+                </div>
+                
+                <div class="form-group">
+                    <div class="g-recaptcha" data-sitekey="6LfKqRUpAAAAAKlN1V4-sQ7XbJ7X7Q9Q9Q9Q9Q9Q"></div>
+                    <p class="recaptcha-note">This helps us prevent spam submissions.</p>
+                </div>
+                
+                <button type="submit" id="submit-btn">
+                    <span id="loader" class="loader"></span>
+                    <span id="submit-text">Submit Project</span>
+                </button>
+            </form>
+        </div>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 JOKKUVERSE. All rights reserved.</p>
+    </footer>
+
+    <script>
+        // Load environment variables from config.js
+        const config = {
+            formspreeUrl: "https://formspree.io/f/xgvkaddk",
+            recaptchaKey: "6LfKqRUpAAAAAKlN1V4-sQ7XbJ7X7Q9Q9Q9Q9Q9Q"
+        };
+
+        document.addEventListener('DOMContentLoaded', function() {
+            const form = document.getElementById('project-form');
+            const submitBtn = document.getElementById('submit-btn');
+            const submitText = document.getElementById('submit-text');
+            const loader = document.getElementById('loader');
+            const successMessage = document.getElementById('success-message');
+            
+            // Generate a simple CSRF token
+            document.getElementById('csrf-token').value = Math.random().toString(36).substring(2, 15) + 
+                                                       Math.random().toString(36).substring(2, 15);
+            
+            form.addEventListener('submit', async function(e) {
+                e.preventDefault();
+                
+                // Show loading state
+                submitText.textContent = "Processing...";
+                loader.style.display = "inline-block";
+                submitBtn.disabled = true;
+                
+                // Validate reCAPTCHA
+                const recaptchaResponse = grecaptcha.getResponse();
+                if (!recaptchaResponse) {
+                    alert("Please complete the reCAPTCHA verification");
+                    submitText.textContent = "Submit Project";
+                    loader.style.display = "none";
+                    submitBtn.disabled = false;
+                    return;
+                }
+                
+                try {
+                    // Create FormData object
+                    const formData = new FormData(form);
+                    
+                    // Add reCAPTCHA response
+                    formData.append('g-recaptcha-response', recaptchaResponse);
+                    
+                    // Send form data to Formspree
+                    const response = await fetch(config.formspreeUrl, {
+                        method: 'POST',
+                        body: formData,
+                        headers: {
+                            'Accept': 'application/json'
+                        }
+                    });
+                    
+                    if (response.ok) {
+                        // Show success message
+                        successMessage.style.display = "block";
+                        form.reset();
+                        grecaptcha.reset();
+                        
+                        // Scroll to success message
+                        successMessage.scrollIntoView({ behavior: 'smooth' });
+                    } else {
+                        throw new Error('Form submission failed');
+                    }
+                } catch (error) {
+                    console.error('Error:', error);
+                    alert("There was an error submitting your form. Please try again.");
+                } finally {
+                    // Reset button state
+                    submitText.textContent = "Submit Project";
+                    loader.style.display = "none";
+                    submitBtn.disabled = false;
+                    
+                    // Hide success message after 5 seconds
+                    if (successMessage.style.display === "block") {
+                        setTimeout(() => {
+                            successMessage.style.display = "none";
+                        }, 5000);
+                    }
+                }
+            });
+        });
+    </script>
+</body>
+</html>
