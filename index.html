@@ -3,17 +3,18 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>JOKKUVERSE</title>
+    <title>JOKKUVERSE | AI & Robotics Portfolio</title>
     <style>
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+            font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
         }
 
         body {
-            background: linear-gradient(to right, #1e3c72, #2a5298);
+            background: linear-gradient(rgba(30, 60, 114, 0.9), rgba(42, 82, 152, 0.8)),
+                        url('data/bg.jpeg') center/cover fixed;
             color: #fff;
             display: flex;
             flex-direction: column;
@@ -22,468 +23,151 @@
         }
 
         header {
-            padding: 60px 20px;
+            padding: 80px 20px;
             text-align: center;
-            background-color: rgba(0, 0, 0, 0.3);
+            background: rgba(0, 0, 0, 0.25);
+            backdrop-filter: blur(4px);
             animation: fadeIn 1s ease-in-out;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
         }
 
         header h1 {
-            font-size: 3rem;
-            margin-bottom: 10px;
+            font-size: 3.5rem;
+            margin-bottom: 15px;
+            font-weight: 600;
+            letter-spacing: -0.5px;
         }
 
         header p {
-            font-size: 1.2rem;
-            color: #ddd;
+            font-size: 1.3rem;
+            color: rgba(221, 221, 221, 0.9);
+            max-width: 600px;
+            margin: 0 auto;
         }
 
         main {
             flex: 1;
             display: flex;
-            justify-content: space-around;
+            justify-content: center;
             align-items: center;
-            padding: 40px;
-            text-align: center;
-            flex-wrap: wrap;
+            padding: 40px 20px;
         }
 
-        .left-section, .right-section {
-            display: flex;
-            flex-direction: column;
-            gap: 20px;
-            width: 45%;
-            min-width: 300px;
-        }
-        .left-section{
-           align-items: flex-start;
-           text-align: left;
+        .cta-container {
+            display: grid;
+            gap: 30px;
+            width: 100%;
+            max-width: 800px;
+            padding: 40px;
         }
 
         .cta {
-            background-color: rgba(255, 255, 255, 0.1);
-            padding: 30px;
-            border-radius: 12px;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
-            transition: transform 0.2s ease;
+            background: rgba(255, 255, 255, 0.08);
+            padding: 40px;
+            border-radius: 16px;
+            backdrop-filter: blur(8px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
         }
 
         .cta:hover {
             transform: translateY(-5px);
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
         }
 
         .cta h2 {
-            font-size: 2rem;
-            margin-bottom: 15px;
+            font-size: 2.2rem;
+            margin-bottom: 20px;
+            font-weight: 500;
+            color: #fff;
         }
 
         .cta p {
             font-size: 1.1rem;
-            color: #ddd;
-            margin-bottom: 20px;
+            color: rgba(221, 221, 221, 0.9);
+            margin-bottom: 30px;
+            line-height: 1.6;
         }
 
         .cta a {
-            display: inline-block;
-            padding: 12px 25px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 16px 32px;
             font-size: 1.1rem;
             text-decoration: none;
-            background-color: #00bcd4;
+            background: rgba(0, 188, 212, 0.9);
             color: #fff;
-            border-radius: 6px;
-            transition: background 0.3s ease;
-            width: 100%;
-            text-align: center;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+            width: auto;
+            min-width: 200px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
         }
 
         .cta a:hover {
-            background-color: #0097a7;
-        }
-
-        #auth-container {
-            background-color: rgba(255, 255, 255, 0.1);
-            padding: 30px;
-            border-radius: 12px;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
-            width: 100%;
-            text-align: center;
-        }
-
-        #auth-container h2 {
-            font-size: 1.8rem;
-            margin-bottom: 20px;
-            color: #fff;
-        }
-
-        #auth-forms {
-            display: flex;
-            flex-direction: column;
-            gap: 20px;
-        }
-
-        .auth-input-group {
-            display: flex;
-            flex-direction: column;
-            gap: 8px;
-            text-align: left;
-        }
-
-        .auth-input-group label {
-            font-size: 1rem;
-            color: #eee;
-        }
-
-        .auth-input-group input {
-            padding: 12px;
-            font-size: 1rem;
-            border: 1px solid rgba(255, 255, 255, 0.2);
-            border-radius: 6px;
-            background-color: rgba(255, 255, 255, 0.1);
-            color: #fff;
-            transition: border-color 0.2s ease;
-        }
-
-        .auth-input-group input:focus {
-            outline: none;
-            border-color: #00bcd4;
-            box-shadow: 0 0 5px rgba(0, 188, 212, 0.3);
-        }
-
-        .auth-button {
-            padding: 12px 25px;
-            font-size: 1.1rem;
-            text-decoration: none;
-            background-color: #00bcd4;
-            color: #fff;
-            border-radius: 6px;
-            transition: background 0.3s ease;
-            cursor: pointer;
-            border: none;
-            width: 100%;
-            text-align: center;
-        }
-
-        .auth-button:hover {
-            background-color: #0097a7;
-        }
-
-        #user-info {
-            margin-bottom: 20px;
-            display: none;
-            text-align: center;
-            padding: 15px;
-            border-radius: 6px;
-            background-color: rgba(0, 0, 0, 0.2);
-        }
-
-        #user-info p {
-            font-size: 1.1rem;
-            color: #fff;
-        }
-
-        #sign-out {
-            padding: 10px 20px;
-            font-size: 1rem;
-            background-color: #f44336;
-            color: #fff;
-            border: none;
-            border-radius: 6px;
-            cursor: pointer;
-            transition: background-color 0.3s ease;
-            margin-top: 10px;
-            width: 100%;
-        }
-
-        #sign-out:hover {
-            background-color: #d32f2f;
-        }
-
-        .social-login {
-            display: flex;
-            flex-direction: column;
-            gap: 10px;
-            margin-top: 20px;
-        }
-
-        .social-login button {
-            padding: 12px 25px;
-            font-size: 1.1rem;
-            text-decoration: none;
-            background-color: #fff;
-            color: #333;
-            border-radius: 6px;
-            transition: background 0.3s ease;
-            cursor: pointer;
-            border: none;
-            width: 100%;
-            text-align: center;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 10px;
-        }
-
-        .social-login button:hover {
-            background-color: #eee;
-        }
-
-        .social-login button.google {
-            background-color: #db4437;
-            color: #fff;
-        }
-
-        .social-login button.google:hover {
-            background-color: #c83528;
-        }
-
-        .social-login button.facebook {
-            background-color: #3b5998;
-            color: #fff;
-        }
-
-        .social-login button.facebook:hover {
-            background-color: #2a4b86;
-        }
-
-        .social-login button.github {
-            background-color: #24292e;
-            color: #fff;
-        }
-
-        .social-login button.github:hover {
-            background-color: #12171c;
+            background: rgba(0, 151, 167, 0.9);
+            transform: translateY(-2px);
         }
 
         footer {
             text-align: center;
-            padding: 20px;
-            background-color: rgba(0, 0, 0, 0.2);
-            font-size: 0.9rem;
-            margin-top: 40px;
+            padding: 30px 20px;
+            background: rgba(0, 0, 0, 0.25);
+            backdrop-filter: blur(4px);
+            margin-top: auto;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
         }
 
         @keyframes fadeIn {
-            from {
-                opacity: 0;
-                transform: translateY(-20px);
-            }
-
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
+            from { opacity: 0; transform: translateY(-20px); }
+            to { opacity: 1; transform: translateY(0); }
         }
 
         @media (max-width: 768px) {
-            .cta-container {
-                flex-direction: column;
-                align-items: center;
-            }
-
-            .cta {
-                width: 100%;
-                max-width: none;
-            }
-
-            main {
-                flex-direction: column;
-            }
-             .left-section, .right-section{
-                width: 100%;
-                min-width: auto;
-             }
-            #auth-container {
-                margin: 20px auto;
-                max-width: 100%;
-            }
             header {
-                padding: 40px 20px;
+                padding: 60px 20px;
             }
-            header h1{
+            header h1 {
                 font-size: 2.5rem;
             }
-            main{
+            .cta-container {
                 padding: 20px;
+            }
+            .cta {
+                padding: 30px;
+            }
+            .cta h2 {
+                font-size: 1.8rem;
             }
         }
     </style>
 </head>
 <body>
     <header>
-        <h1>Welcome to JOKKUVERSE</h1>
-        <p>Your digital portfolio starts here.</p>
+        <h1>JOKKUVERSE</h1>
+        <p>Innovating at the intersection of AI, Robotics, and Creative Technology</p>
     </header>
 
     <main>
-        <div class="left-section">
+        <div class="cta-container">
             <div class="cta">
-                <h2>Explore My Work</h2>
-                <p>AI · Robotics · Projects · Demos</p>
-                <a href="projects.html">View Projects</a>
+                <h2>Portfolio Showcase</h2>
+                <p>Explore cutting-edge projects in artificial intelligence, robotic systems, and innovative technical demonstrations.</p>
+                <a href="projects.html">View Work</a>
             </div>
-            
+            <!--
             <div class="cta">
-                <h2>Contact Me For Business</h2>
-                <p>Reach out for collaborations and project inquiries.</p>
-                <a href="project-sub.html">Get in Touch</a>
+                <h2>Collaboration Inquiry</h2>
+                <p>For partnership opportunities, research collaborations, or technical consulting services.</p>
+                <a href="project-sub.html">Contact</a>
             </div>
-        </div>
-        <div class="right-section">
-            <div id="auth-container">
-                <div id="user-info">
-                    <p>Logged in as: <span id="user-email"></span></p>
-                    <button id="sign-out">Sign Out</button>
-                </div>
-                <div id="auth-forms">
-                    <h2>Sign Up</h2>
-                    <div class="auth-input-group">
-                        <label for="signup-email">Email</label>
-                        <input type="email" id="signup-email" placeholder="Email">
-                    </div>
-                    <div class="auth-input-group">
-                        <label for="signup-password">Password</label>
-                        <input type="password" id="signup-password" placeholder="Password">
-                    </div>
-                    <button id="signup-button" class="auth-button">Sign Up</button>
-
-                    <h2>Sign In</h2>
-                    <div class="auth-input-group">
-                        <label for="signin-email">Email</label>
-                        <input type="email" id="signin-email" placeholder="Email">
-                    </div>
-                    <div class="auth-input-group">
-                        <label for="signin-password">Password</label>
-                        <input type="password" id="signin-password" placeholder="Password">
-                    </div>
-                    <button id="signin-button" class="auth-button">Sign In</button>
-
-                    <div class="social-login">
-                        <button class="google">
-                            <img src="https://upload.wikimedia.org/wikipedia/commons/5/53/Google_%22G%22_Logo.svg" alt="Google Logo" style="width: 20px; height: 20px;">
-                            Sign in with Google
-                        </button>
-                        <button class="facebook">
-                            <img src="https://upload.wikimedia.org/wikipedia/commons/b/b8/2021_Facebook_icon.svg" alt="Facebook Logo" style="width: 20px; height: 20px;">
-                            Sign in with Facebook
-                        </button>
-                        <button class="github">
-                            <img src="https://github.githubassets.com/images/modules/logos_page/GitHub-Mark-Light-64px.png" alt="GitHub Logo" style="width: 20px; height: 20px;">
-                            Sign in with GitHub
-                        </button>
-                    </div>
-                </div>
-            </div>
+            -->
         </div>
     </main>
 
     <footer>
-        <p>&copy; 2025 JOKKUVERSE. All rights reserved.</p>
+        <p>&copy; 2025 JOKKUVERSE. All intellectual property protected.</p>
     </footer>
-<script src="config.js"></script>
-
-<!-- Firebase SDKs -->
-<script src="https://www.gstatic.com/firebasejs/9.22.2/firebase-app-compat.js"></script>
-<script src="https://www.gstatic.com/firebasejs/9.22.2/firebase-auth-compat.js"></script>
-    <script>
-    // Initialize Firebase
-    const cfg = window._env_;
-  const firebaseConfig = {
-    apiKey: cfg.FIREBASE_API_KEY,
-    authDomain: cfg.FIREBASE_AUTH_DOMAIN,
-    projectId: cfg.FIREBASE_PROJECT_ID,
-    storageBucket: cfg.FIREBASE_STORAGE_BUCKET,
-    messagingSenderId: cfg.FIREBASE_MESSAGING_SENDER_ID,
-    appId: cfg.FIREBASE_APP_ID,
-    measurementId:FIREBASE_MEASUREMENT_ID
-  };
-  firebase.initializeApp(firebaseConfig);
-const firebaseAuth = firebase.auth();
-    const authContainer = document.getElementById('auth-container');
-    const userInfo = document.getElementById('user-info');
-    const userEmailDisplay = document.getElementById('user-email');
-    const signOutButton = document.getElementById('sign-out');
-    const signUpButton = document.getElementById('signup-button');
-    const signInButton = document.getElementById('signin-button');
-    const signupEmailInput = document.getElementById('signup-email');
-    const signupPasswordInput = document.getElementById('signup-password');
-    const signinEmailInput = document.getElementById('signin-email');
-    const signinPasswordInput = document.getElementById('signin-password');
-    const googleSignInButton = document.querySelector('.social-login button.google');
-    const facebookSignInButton = document.querySelector('.social-login button.facebook');
-    const githubSignInButton = document.querySelector('.social-login button.github');
-
-
-    firebaseAuth.onAuthStateChanged(function(user) {
-        if (user) {
-            // User is signed in.
-            authContainer.style.display = 'block';
-            userInfo.style.display = 'block';
-            userEmailDisplay.textContent = user.email;
-            signOutButton.addEventListener('click', function() {
-                firebaseAuth.signOut().then(function() {
-                    authContainer.style.display = 'none';
-                    userInfo.style.display = 'none';
-                    console.log('Signed Out');
-                }).catch(function(error) {
-                    console.error('Sign Out Error:', error);
-                });
-            });
-        } else {
-            // User is signed out.
-            authContainer.style.display = 'block';
-            userInfo.style.display = 'none';
-        }
-    });
-
-    signUpButton.addEventListener('click', function() {
-        const email = signupEmailInput.value;
-        const password = signupPasswordInput.value;
-        firebaseAuth.createUserWithEmailAndPassword(email, password).then(function(userCredential) {
-          console.log("Signed Up", userCredential.user);
-        }).catch(function(error) {
-            console.error("Error: ", error);
-        });
-    });
-
-    signInButton.addEventListener('click', function() {
-        const email = signinEmailInput.value;
-        const password = signinPasswordInput.value;
-        firebaseAuth.signInWithEmailAndPassword(email, password).then(function(userCredential) {
-            console.log("Signed In", userCredential.user);
-        }).catch(function(error) {
-            console.error("Error: ", error);
-        });
-    });
-
-    //Google Sign In
-    googleSignInButton.addEventListener('click', function() {
-        const provider = new firebase.auth.GoogleAuthProvider();
-        firebaseAuth.signInWithPopup(provider).then(function(result) {
-            console.log("Google Sign In", result.user);
-        }).catch(function(error) {
-            console.error("Google Sign In Error", error);
-        });
-    });
-
-    //Facebook Sign In
-    facebookSignInButton.addEventListener('click', function() {
-        const provider = new firebase.auth.FacebookAuthProvider();
-        firebaseAuth.signInWithPopup(provider).then(function(result) {
-            console.log("Facebook Sign In", result.user);
-        }).catch(function(error) {
-            console.error("Facebook Sign In Error", error);
-        });
-    });
-
-    //GitHub Sign In
-    githubSignInButton.addEventListener('click', function() {
-        const provider = new firebase.auth.GithubAuthProvider();
-        firebaseAuth.signInWithPopup(provider).then(function(result) {
-            console.log("GitHub Sign In", result.user);
-        }).catch(function(error) {
-            console.error("GitHub Sign In Error", error);
-        });
-    });
-    </script>
 </body>
 </html>

@@ -2,72 +2,111 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>My Projects | Jokkuverse</title>
+  <script src="https://cdn.tailwindcss.com"></script>
   <style>
+    /* Custom font import */
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
     body {
-      font-family: 'Segoe UI', sans-serif;
-      background: #f2f2f2;
-      margin: 0;
-      padding: 0;
+      font-family: 'Inter', sans-serif;
     }
-
-    header {
-      background: #1e3c72;
-      color: white;
-      padding: 20px;
-      text-align: center;
+    /* Hide the description by default */
+    .description-content {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.5s ease-out; /* Smooth transition for expand/collapse */
     }
-
-    .project {
-      background: white;
-      margin: 30px auto;
-      padding: 20px;
-      width: 80%;
-      border-radius: 8px;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-    }
-
-    .project h2 {
-      color: #2a5298;
-    }
-
-    .project p {
-      margin: 10px 0;
-    }
-
-    .project a {
-      display: inline-block;
-      margin-top: 10px;
-      padding: 10px 15px;
-      background-color: #00bcd4;
-      color: white;
-      text-decoration: none;
-      border-radius: 5px;
-    }
-
-    .project a:hover {
-      background-color: #0097a7;
+    .description-content.expanded {
+      max-height: none; /* Adjust this value as needed to accommodate content */
+      transition: max-height 0.7s ease-in;
     }
   </style>
 </head>
-<body>
+<body class="bg-gray-100 m-0 p-0 font-inter">
 
-  <header>
-    <h1>Explore My Projects</h1>
+  <header class="bg-blue-900 text-white p-5 text-center shadow-md rounded-b-lg">
+    <h1 class="text-3xl font-bold">Explore My Projects</h1>
   </header>
 
-  <div class="project">
-    <h2>Location Sender</h2>
-    <p></p>
-    <a href="https://github.com/yourusername/your-repo/releases/download/v1.0/chatbot.exe" download>Download .exe</a>
-  </div>
+  <main class="container mx-auto px-4 py-8">
+    <section class="project bg-white mx-auto my-8 p-6 rounded-xl shadow-lg">
+      <h2 class="text-2xl font-semibold text-blue-800 mb-4">Genre-Based Movie Recommender System</h2>
+      
+      <p class="text-gray-700 mb-4">
+        This project showcases a sophisticated movie recommendation system built with Python, Flask, and Flutter.
+      </p>
 
-  <div class="project">
-    <h2>HandWritten Digit Classifier</h2>
-    <p></p>
-    <a href="https://github.com/yourusername/your-repo/releases/download/v1.0/robot.exe" download>Download .exe</a>
-  </div>
+      <div class="flex flex-col sm:flex-row gap-4 mb-4">
+        <button 
+          class="toggle-description-btn bg-cyan-500 hover:bg-cyan-600 text-white font-semibold py-2 px-4 rounded-lg shadow-md transition duration-300 ease-in-out transform hover:scale-105 focus:outline-none focus:ring-2 focus:ring-cyan-400 focus:ring-opacity-75"
+          onclick="toggleDescription(this)"
+        >
+          See Description
+        </button>
+        <a 
+          href="https://github.com/Jokku-gamma/FlutterProjects/releases/download/v1.0.0/app-release.apk" 
+          download 
+          class="download-apk-btn bg-blue-600 hover:bg-blue-700 text-white font-semibold py-2 px-4 rounded-lg shadow-md transition duration-300 ease-in-out transform hover:scale-105 text-center no-underline flex items-center justify-center"
+        >
+          <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"></path></svg>
+          Download APK
+        </a>
+      </div>
+
+      <div id="movie-recommender-description" class="description-content text-gray-800 leading-relaxed">
+        <h3 class="text-xl font-bold text-blue-700 mb-2">Project Description: Genre-Based Movie Recommender System</h3>
+        <p class="mb-3">This project delivers a <strong>genre-based movie recommendation system</strong>, leveraging machine learning and cloud technologies to provide personalized movie suggestions. The system is comprised of three main components: a <strong>data processing and recommendation engine</strong> (Python), a <strong>RESTful API</strong> (Flask), and a <strong>user-friendly mobile application</strong> (Flutter).</p>
+
+        <h4 class="text-lg font-semibold text-blue-600 mb-2">1. Data Processing and Recommendation Engine</h4>
+        <ul class="list-disc list-inside ml-4 mb-3 space-y-1">
+          <li><strong>Dataset Acquisition:</strong> The project utilizes the <code>ml-25m/movies.csv</code> dataset, a rich collection of movie information.</li>
+          <li><strong>Genre Transformation:</strong> The original <code>genres</code> column is first duplicated into <code>org_genres</code> to preserve the raw, pipe-separated genre string. The <code>genres</code> column is then transformed by splitting the pipe-separated genre strings into individual genres, allowing each movie to be associated with multiple genres. The dataset is "exploded" so that each row represents a unique movie-genre pair, making it easier to process individual genres.</li>
+          <li><strong>One-Hot Encoding:</strong> <strong>One-Hot Encoding</strong> is applied to the <code>genres</code> column. This converts categorical genre data into a numerical format, where each genre becomes a new column, and a <code>1</code> indicates the presence of that genre for a given movie, while `0` indicates its absence. These one-hot encoded genre vectors are then aggregated back to the movie level, ensuring that each movie has a comprehensive binary representation across all genres.</li>
+          <li><strong>Cosine Similarity Calculation:</strong> The numerical genre vectors are used to compute a <strong>cosine similarity matrix</strong>. This matrix quantifies the similarity between every pair of movies based on their genre profiles. A higher cosine similarity score indicates that two movies share more genres in common.</li>
+          <li><strong>Recommendation Logic:</strong> A <code>recommend_movies</code> function was developed. When a specific genre is provided, it identifies all movies belonging to that genre. It then calculates the average similarity of these genre-specific movies with <em>all</em> other movies in the dataset using the pre-computed cosine similarity matrix. Finally, it ranks movies by this average similarity and returns the <code>top_n</code> most similar titles, along with their original genre information.</li>
+          <li><strong>Persistence:</strong> The processed <code>movies</code> data (<code>movies_processed.csv</code>) and the calculated <code>cosine similarity matrix</code> (<code>similarity.joblib</code> and <code>cos_similarity.joblib</code>) are saved for efficient access by the API.</li>
+        </ul>
+
+        <h4 class="text-lg font-semibold text-blue-600 mb-2">2. Flask API for Cloud Integration</h4>
+        <ul class="list-disc list-inside ml-4 mb-3 space-y-1">
+          <li><strong>Cloud Storage Integration:</strong> The pre-processed <code>movies_processed.csv</code> file and the <code>similarity.joblib</code> (or <code>cos_similarity.joblib</code>) file are <strong>stored in Microsoft Azure Cloud Storage services</strong>. This provides scalable and reliable storage for the backend data.</li>
+          <li><strong>API Endpoints:</strong> The Flask API provides endpoints to: fetch a list of unique genres available for recommendation; receive a selected genre from the mobile app; load the necessary data (<code>movies_processed.csv</code> and <code>similarity.joblib</code>) from Azure cloud storage; utilize the recommendation logic to generate movie recommendations based on the requested genre; and return the recommendations as a JSON response to the Flutter app.</li>
+          <li><strong>Deployment:</strong> The Flask API is <strong>deployed on Render.com</strong>, providing a live and accessible endpoint for the mobile application to consume.</li>
+        </ul>
+
+        <h4 class="text-lg font-semibold text-blue-600 mb-2">3. Flutter Mobile Application</h4>
+        <ul class="list-disc list-inside ml-4 mb-3 space-y-1">
+          <li><strong>User Interface:</strong> The app features a clean and intuitive design, allowing users to easily select a genre.</li>
+          <li><strong>API Interaction:</strong> It connects to the deployed Flask API, sending requests for genres and movie recommendations.</li>
+          <li><strong>Dynamic Content:</strong> The app dynamically fetches the list of available genres from the API and populates a dropdown menu.</li>
+          <li><strong>Display Recommendations:</strong> Once a genre is selected and recommendations are fetched, the app displays the recommended movie titles and their genres in a readable list format.</li>
+          <li><strong>Error Handling and Loading States:</strong> The application includes visual indicators for loading states and robust error handling to provide a smooth user experience even if API calls encounter issues.</li>
+        </ul>
+
+        <h4 class="text-lg font-semibold text-blue-600 mb-2">Project Links:</h4>
+        <ul class="list-disc list-inside ml-4 mb-3 space-y-1">
+          <li><strong>Flask API Endpoint:</strong> <a href="https://moviereccomendation.onrender.com" target="_blank" class="text-blue-500 hover:underline">https://moviereccomendation.onrender.com</a></li>
+          <li><strong>GitHub Repository (Recommendation Engine/Flask API):</strong> <a href="https://github.com/Jokku-gamma/MovieRecc" target="_blank" class="text-blue-500 hover:underline">https://github.com/Jokku-gamma/MovieRecc</a></li>
+          <li><strong>GitHub Repository (Flutter App):</strong> <a href="https://github.com/Jokku-gamma/FlutterProjects/tree/main/MovieReccomender/moviereccomender" target="_blank" class="text-blue-500 hover:underline">https://github.com/Jokku-gamma/FlutterProjects/tree/main/MovieReccomender/moviereccomender</a></li>
+        </ul>
+      </div>
+    </section>
+    </main>
+
+  <script>
+    function toggleDescription(button) {
+      const descriptionDiv = button.closest('.project').querySelector('.description-content');
+      if (descriptionDiv) {
+        descriptionDiv.classList.toggle('expanded');
+        if (descriptionDiv.classList.contains('expanded')) {
+          button.textContent = 'Hide Description';
+        } else {
+          button.textContent = 'See Description';
+        }
+      }
+    }
+  </script>
 
 </body>
 </html>
