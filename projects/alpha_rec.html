@@ -1,0 +1,98 @@
+<div class="project-card" id="alphabet-recognition">
+  <div class="project-header">
+    <h2 class="project-title">Handwritten Alphabet Recognition</h2>
+    <p class="project-subtitle">A deep learning model that recognizes handwritten English alphabets</p>
+  </div>
+  
+  <div class="project-content">
+    <div class="tech-tags mb-6">
+      <span class="tech-tag">TensorFlow</span>
+      <span class="tech-tag">Gradio</span>
+      <span class="tech-tag">CNN</span>
+      <span class="tech-tag">Python</span>
+      <span class="tech-tag">Deep Learning</span>
+      <span class="tech-tag">Render</span>
+    </div>
+    
+    <p class="mb-6">A deep learning model that recognizes handwritten English alphabets using a convolutional neural network (CNN) with a Gradio web interface.</p>
+    
+    <div class="buttons mb-6">
+      <a href="https://alphabetrecognizergradio.onrender.com/" target="_blank" class="btn btn-primary">
+        <i class="fas fa-external-link-alt mr-2"></i>
+        Live Demo
+      </a>
+      <a href="https://github.com/Jokku-gamma/DeepLearningProjects" target="_blank" class="btn btn-secondary">
+        <i class="fab fa-github mr-2"></i>
+        GitHub Repository
+      </a>
+    </div>
+    
+    <div class="gradio-container">
+      <iframe class="gradio-iframe" src="https://alphabetrecognizergradio.onrender.com/" title="Handwritten Alphabet Recognition"></iframe>
+    </div>
+    <p class="text-sm text-gray-500 text-center mb-6">Note: The application may take 20-30 seconds to load on first visit</p>
+    
+    <button class="description-toggle" onclick="toggleDescription(this)">
+      <i class="fas fa-info-circle mr-2"></i>
+      Project Details
+    </button>
+    
+    <div class="description-content">
+      <div class="p-6">
+        <h3 class="text-2xl font-bold text-blue-700 mb-6 text-center">Project Overview</h3>
+        
+        <p class="mb-6">
+          This project implements a complete deep learning solution for recognizing handwritten English alphabets. It combines a TensorFlow/Keras convolutional neural network (CNN) with a Gradio web interface to create an interactive application that allows users to draw letters and receive real-time predictions.
+        </p>
+
+        <h4 class="text-xl font-semibold text-blue-600 mb-4 border-b pb-2">Technical Implementation</h4>
+        <div class="grid-cols-2 mb-8">
+          <div class="feature-card">
+            <div class="feature-icon">
+              <i class="fas fa-brain"></i>
+            </div>
+            <h5 class="font-bold text-blue-700 mb-2">Deep Learning Model</h5>
+            <p>The CNN model was trained on the EMNIST dataset, achieving 92% accuracy in classifying handwritten letters (A-Z).</p>
+          </div>
+          
+          <div class="feature-card">
+            <div class="feature-icon">
+              <i class="fas fa-image"></i>
+            </div>
+            <h5 class="font-bold text-blue-700 mb-2">Image Processing</h5>
+            <p>User-drawn images are converted to grayscale, resized to 28x28 pixels, normalized, and reshaped for the model.</p>
+          </div>
+        </div>
+
+        <h4 class="text-xl font-semibold text-blue-600 mb-4 border-b pb-2">Key Features</h4>
+        <div class="grid-cols-2 mb-8">
+          <div class="feature-card">
+            <i class="fas fa-check-circle text-green-500 mr-2"></i>
+            <h5 class="font-bold text-blue-700 mb-2">Interactive Drawing Canvas</h5>
+            <p>Draw letters with mouse or touchscreen, with adjustable brush size.</p>
+          </div>
+          
+          <div class="feature-card">
+            <i class="fas fa-check-circle text-green-500 mr-2"></i>
+            <h5 class="font-bold text-blue-700 mb-2">Real-time Feedback</h5>
+            <p>Predictions update instantly as users draw.</p>
+          </div>
+        </div>
+
+        <div class="bg-gray-50 p-6 rounded-lg border border-gray-200">
+          <h4 class="text-xl font-semibold text-blue-600 mb-3">Project Links</h4>
+          <div class="flex flex-wrap">
+            <a href="https://alphabetrecognizergradio.onrender.com/" target="_blank" class="btn btn-primary mr-3 mb-3">
+              <i class="fas fa-external-link-alt mr-2"></i>
+              Live Demo
+            </a>
+            <a href="https://github.com/Jokku-gamma/DeepLearningProjects" target="_blank" class="btn btn-secondary mb-3">
+              <i class="fab fa-github mr-2"></i>
+              GitHub Repository
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
