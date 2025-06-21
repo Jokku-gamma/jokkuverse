@@ -1,98 +1,94 @@
-<div class="project-card" id="alphabet-recognition">
-  <div class="project-header">
-    <h2 class="project-title">Handwritten Alphabet Recognition</h2>
-    <p class="project-subtitle">A deep learning model that recognizes handwritten English alphabets</p>
-  </div>
-  
-  <div class="project-content">
-    <div class="tech-tags mb-6">
-      <span class="tech-tag">TensorFlow</span>
-      <span class="tech-tag">Gradio</span>
-      <span class="tech-tag">CNN</span>
-      <span class="tech-tag">Python</span>
-      <span class="tech-tag">Deep Learning</span>
-      <span class="tech-tag">Render</span>
+<section class="project-card bg-white mx-auto my-8 p-6 rounded-xl shadow-lg">
+  <div class="flex flex-col md:flex-row gap-6">
+    <div class="md:w-1/3">
+      <div class="bg-gray-200 border-2 border-dashed rounded-xl w-full h-64 flex items-center justify-center text-gray-500">
+        <span>Handwritten Alphabet Preview</span>
+      </div>
     </div>
-    
-    <p class="mb-6">A deep learning model that recognizes handwritten English alphabets using a convolutional neural network (CNN) with a Gradio web interface.</p>
-    
-    <div class="buttons mb-6">
-      <a href="https://alphabetrecognizergradio.onrender.com/" target="_blank" class="btn btn-primary">
-        <i class="fas fa-external-link-alt mr-2"></i>
-        Live Demo
-      </a>
-      <a href="https://github.com/Jokku-gamma/DeepLearningProjects" target="_blank" class="btn btn-secondary">
-        <i class="fab fa-github mr-2"></i>
-        GitHub Repository
-      </a>
-    </div>
-    
-    <div class="gradio-container">
-      <iframe class="gradio-iframe" src="https://alphabetrecognizergradio.onrender.com/" title="Handwritten Alphabet Recognition"></iframe>
-    </div>
-    <p class="text-sm text-gray-500 text-center mb-6">Note: The application may take 20-30 seconds to load on first visit</p>
-    
-    <button class="description-toggle" onclick="toggleDescription(this)">
-      <i class="fas fa-info-circle mr-2"></i>
-      Project Details
-    </button>
-    
-    <div class="description-content">
-      <div class="p-6">
-        <h3 class="text-2xl font-bold text-blue-700 mb-6 text-center">Project Overview</h3>
-        
-        <p class="mb-6">
-          This project implements a complete deep learning solution for recognizing handwritten English alphabets. It combines a TensorFlow/Keras convolutional neural network (CNN) with a Gradio web interface to create an interactive application that allows users to draw letters and receive real-time predictions.
-        </p>
+    <div class="md:w-2/3">
+      <div class="flex flex-wrap gap-2 mb-3">
+        <span class="tech-tag">TensorFlow</span>
+        <span class="tech-tag">Gradio</span>
+        <span class="tech-tag">CNN</span>
+        <span class="tech-tag">Python</span>
+        <span class="tech-tag">Machine Learning</span>
+      </div>
 
-        <h4 class="text-xl font-semibold text-blue-600 mb-4 border-b pb-2">Technical Implementation</h4>
-        <div class="grid-cols-2 mb-8">
-          <div class="feature-card">
-            <div class="feature-icon">
-              <i class="fas fa-brain"></i>
-            </div>
-            <h5 class="font-bold text-blue-700 mb-2">Deep Learning Model</h5>
-            <p>The CNN model was trained on the EMNIST dataset, achieving 92% accuracy in classifying handwritten letters (A-Z).</p>
-          </div>
-          
-          <div class="feature-card">
-            <div class="feature-icon">
-              <i class="fas fa-image"></i>
-            </div>
-            <h5 class="font-bold text-blue-700 mb-2">Image Processing</h5>
-            <p>User-drawn images are converted to grayscale, resized to 28x28 pixels, normalized, and reshaped for the model.</p>
-          </div>
-        </div>
+      <h2 class="text-2xl font-semibold text-blue-800 mb-3">Handwritten Alphabet Recognition</h2>
 
-        <h4 class="text-xl font-semibold text-blue-600 mb-4 border-b pb-2">Key Features</h4>
-        <div class="grid-cols-2 mb-8">
-          <div class="feature-card">
-            <i class="fas fa-check-circle text-green-500 mr-2"></i>
-            <h5 class="font-bold text-blue-700 mb-2">Interactive Drawing Canvas</h5>
-            <p>Draw letters with mouse or touchscreen, with adjustable brush size.</p>
-          </div>
-          
-          <div class="feature-card">
-            <i class="fas fa-check-circle text-green-500 mr-2"></i>
-            <h5 class="font-bold text-blue-700 mb-2">Real-time Feedback</h5>
-            <p>Predictions update instantly as users draw.</p>
-          </div>
-        </div>
+      <p class="text-gray-700 mb-4">
+        A deep learning model that recognizes handwritten English alphabets in real-time using a convolutional neural network (CNN) with a Gradio web interface.
+      </p>
 
-        <div class="bg-gray-50 p-6 rounded-lg border border-gray-200">
-          <h4 class="text-xl font-semibold text-blue-600 mb-3">Project Links</h4>
-          <div class="flex flex-wrap">
-            <a href="https://alphabetrecognizergradio.onrender.com/" target="_blank" class="btn btn-primary mr-3 mb-3">
-              <i class="fas fa-external-link-alt mr-2"></i>
-              Live Demo
-            </a>
-            <a href="https://github.com/Jokku-gamma/DeepLearningProjects" target="_blank" class="btn btn-secondary mb-3">
-              <i class="fab fa-github mr-2"></i>
-              GitHub Repository
-            </a>
-          </div>
-        </div>
+      <div class="flex flex-wrap gap-3 mb-4">
+        <button
+          class="toggle-description-btn bg-cyan-500 hover:bg-cyan-600 text-white font-semibold py-2 px-4 rounded-lg shadow-md transition duration-300 ease-in-out transform hover:scale-105 focus:outline-none focus:ring-2 focus:ring-cyan-400 focus:ring-opacity-75"
+          onclick="toggleDescription(this)"
+        >
+          See Description
+        </button>
+        <a
+          href="https://github.com/Jokku-gamma/HandwrittenAlphabetRecognition"
+          target="_blank"
+          class="github-btn bg-gray-800 hover:bg-black text-white font-semibold py-2 px-4 rounded-lg shadow-md transition duration-300 ease-in-out transform hover:scale-105 text-center no-underline flex items-center justify-center"
+        >
+          <svg class="w-5 h-5 mr-2" fill="currentColor" viewBox="0 0 24 24">
+            <path fill-rule="evenodd" clip-rule="evenodd" d="M12 2C6.477 2 2 6.477 2 12c0 4.42 2.87 8.17 6.84 9.5.5.08.66-.23.66-.5v-1.69c-2.77.6-3.36-1.34-3.36-1.34-.46-1.16-1.11-1.47-1.11-1.47-.91-.62.07-.6.07-.6 1 .07 1.53 1.03 1.53 1.03.87 1.52 2.34 1.07 2.91.83.09-.65.35-1.09.63-1.34-2.22-.25-4.55-1.11-4.55-4.92 0-1.11.38-2 1.03-2.71-.1-.25-.45-1.29.1-2.64 0 0 .84-.27 2.75 1.02.79-.22 1.65-.33 2.5-.33.85 0 1.71.11 2.5.33 1.91-1.29 2.75-1.02 2.75-1.02.55 1.35.2 2.39.1 2.64.65.71 1.03 1.6 1.03 2.71 0 3.82-2.34 4.66-4.57 4.91.36.31.69.92.69 1.85V21c0 .27.16.59.67.5C19.14 20.16 22 16.42 22 12A10 10 0 0012 2z"/>
+          </svg>
+          GitHub Repository
+        </a>
       </div>
     </div>
   </div>
-</div>
+
+  <div id="alphabet-recognition-description" class="description-content text-gray-800 leading-relaxed mt-4">
+    <div class="border-t pt-4">
+      <h3 class="text-xl font-bold text-blue-700 mb-3">Project Description: Handwritten Alphabet Recognition</h3>
+
+      <p class="mb-4">
+        This project implements a complete deep learning solution for recognizing handwritten English alphabets. It combines a TensorFlow/Keras convolutional neural network (CNN) with a Gradio web interface to create an interactive application that allows users to draw letters and receive real-time predictions.
+      </p>
+
+      <h4 class="text-lg font-semibold text-blue-600 mb-2">Technical Implementation:</h4>
+      <ul class="list-disc list-inside ml-4 mb-5 space-y-2">
+        <li><strong>Deep Learning Model:</strong> The core of the application is a CNN trained on the EMNIST dataset, achieving high accuracy in classifying handwritten letters (A-Z). The model architecture includes convolutional layers for feature extraction and dense layers for classification.</li>
+        <li><strong>Image Preprocessing:</strong> User-drawn images are converted to grayscale, resized to 28x28 pixels, and normalized to match the training data format. This preprocessing ensures compatibility with the trained model.</li>
+        <li><strong>Real-time Prediction:</strong> The application processes user input in real-time, providing immediate feedback with the predicted letter and confidence scores.</li>
+        <li><strong>Gradio Interface:</strong> The web interface is built using Gradio, a Python library for creating customizable UI components for machine learning models. The interface includes a sketchpad for drawing letters and displays the prediction results clearly.</li>
+        <li><strong>Deployment:</strong> The application is containerized and deployed as a web service, accessible through any modern browser without requiring installation.</li>
+      </ul>
+
+      <h4 class="text-lg font-semibold text-blue-600 mb-2">Key Features:</h4>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-5">
+        <div class="bg-blue-50 p-4 rounded-lg">
+          <h5 class="font-semibold text-blue-700 mb-2">Interactive Drawing Canvas</h5>
+          <p>Users can draw letters with their mouse or touchscreen, with adjustable brush size and clear functionality.</p>
+        </div>
+        <div class="bg-blue-50 p-4 rounded-lg">
+          <h5 class="font-semibold text-blue-700 mb-2">Real-time Feedback</h5>
+          <p>Predictions update instantly as users draw, showing the top predicted letter with confidence percentage.</p>
+        </div>
+        <div class="bg-blue-50 p-4 rounded-lg">
+          <h5 class="font-semibold text-blue-700 mb-2">Mobile Responsive</h5>
+          <p>The interface works seamlessly on both desktop and mobile devices.</p>
+        </div>
+        <div class="bg-blue-50 p-4 rounded-lg">
+          <h5 class="font-semibold text-blue-700 mb-2">Model Confidence</h5>
+          <p>Displays the model's confidence level for the top prediction, providing transparency about the result.</p>
+        </div>
+      </div>
+
+      <h4 class="text-lg font-semibold text-blue-600 mb-2">Try the Application:</h4>
+      <div class="gradio-container mb-5 rounded-lg overflow-hidden border border-gray-200">
+        <iframe class="gradio-iframe" src="https://alphabetrecognizergradio.onrender.com" title="Handwritten Alphabet Recognition"></iframe>
+      </div>
+      <p class="text-sm text-gray-600 mb-5">Note: The application may take a few seconds to load. If you encounter issues, try refreshing the page.</p>
+
+      <h4 class="text-lg font-semibold text-blue-600 mb-2">Project Links:</h4>
+      <ul class="list-disc list-inside ml-4 mb-3 space-y-1">
+        <li><strong>Live Demo:</strong> <a href="https://alphabetrecognizergradio.onrender.com" target="_blank" class="text-blue-500 hover:underline">https://alphabetrecognizergradio.onrender.com</a></li>
+        <li><strong>GitHub Repository:</strong> <a href="https://github.com/Jokku-gamma/DeepLearningProjects/tree/main/AlphabetRecognition" target="_blank" class="text-blue-500 hover:underline"></a></li>
+      </ul>
+    </div>
+  </div>
+</section>

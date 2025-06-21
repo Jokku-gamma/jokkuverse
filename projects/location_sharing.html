@@ -1,67 +1,50 @@
-<div class="project-card" id="location-sharing">
-  <div class="project-header">
-    <h2 class="project-title">Secure Local Location Sharing App</h2>
-    <p class="project-subtitle">A Flutter mobile application for secure location sharing within local networks</p>
-  </div>
-  
-  <div class="project-content">
-    <div class="tech-tags mb-6">
-      <span class="tech-tag">Flutter</span>
-      <span class="tech-tag">Dart</span>
-      <span class="tech-tag">Location Services</span>
-      <span class="tech-tag">Network Communication</span>
-      <span class="tech-tag">VPN</span>
-    </div>
-    
-    <p class="mb-6">This project focuses on building a secure and private way to share location data between devices on the same network.</p>
-    
-    <div class="buttons mb-6">
-      <a href="https://github.com/Jokku-gamma/LocationSender/releases/download/v1.0.0/location-sender.apk" download class="btn btn-primary">
-        <i class="fas fa-download mr-2"></i>
-        Download APK
-      </a>
-    </div>
-    
-    <button class="description-toggle" onclick="toggleDescription(this)">
-      <i class="fas fa-info-circle mr-2"></i>
-      Project Details
+<section class="project-card bg-white mx-auto my-8 p-6 rounded-xl shadow-lg">
+  <h2 class="text-2xl font-semibold text-blue-800 mb-4">Secure Local Location Sharing App</h2>
+
+  <p class="text-gray-700 mb-4">
+    This project features a Flutter mobile application designed for secure and private location sharing within a local network, potentially leveraging VPN services.
+  </p>
+
+  <div class="flex flex-col sm:flex-row gap-4 mb-4">
+    <button
+      class="toggle-description-btn bg-cyan-500 hover:bg-cyan-600 text-white font-semibold py-2 px-4 rounded-lg shadow-md transition duration-300 ease-in-out transform hover:scale-105 focus:outline-none focus:ring-2 focus:ring-cyan-400 focus:ring-opacity-75"
+      onclick="toggleDescription(this)"
+    >
+      See Description
     </button>
-    
-    <div class="description-content">
-      <div class="p-6">
-        <h3 class="text-2xl font-bold text-blue-700 mb-6 text-center">Project Overview</h3>
-        
-        <p class="mb-6">
-          A Flutter mobile application designed for secure and private location sharing within a local network, with VPN compatibility.
-        </p>
-
-        <h4 class="text-xl font-semibold text-blue-600 mb-4 border-b pb-2">Features</h4>
-        <div class="grid-cols-2 mb-8">
-          <div class="feature-card">
-            <h5 class="font-bold text-blue-700 mb-2">Core Functionality</h5>
-            <ul class="list-disc pl-5">
-              <li>Native location services</li>
-              <li>Direct network communication</li>
-              <li>Secure data transmission</li>
-              <li>VPN compatible</li>
-            </ul>
-          </div>
-          
-          <div class="feature-card">
-            <h5 class="font-bold text-blue-700 mb-2">Use Cases</h5>
-            <ul class="list-disc pl-5">
-              <li>Family location sharing</li>
-              <li>Event coordination</li>
-              <li>Private asset tracking</li>
-            </ul>
-          </div>
-        </div>
-
-        <h4 class="text-xl font-semibold text-blue-600 mb-4 border-b pb-2">Project Links</h4>
-        <ul class="list-disc pl-5 mb-6">
-          <li><strong>GitHub Repository:</strong> <a href="https://github.com/Jokku-gamma/LocationSender" target="_blank" class="text-blue-500 hover:underline">https://github.com/Jokku-gamma/LocationSender</a></li>
-        </ul>
-      </div>
-    </div>
+    <a
+      href="https://github.com/Jokku-gamma/LocationSender/releases/download/v1.0.0/location-sender.apk"
+      download
+      class="download-apk-btn bg-blue-600 hover:bg-blue-700 text-white font-semibold py-2 px-4 rounded-lg shadow-md transition duration-300 ease-in-out transform hover:scale-105 text-center no-underline flex items-center justify-center"
+    >
+      <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"></path></svg>
+      Download APK
+    </a>
   </div>
-</div>
+
+  <div id="location-app-description" class="description-content text-gray-800 leading-relaxed">
+    <h3 class="text-xl font-bold text-blue-700 mb-2">Project Description: Secure Local Location Sharing App</h3>
+    <p class="mb-3">This project focuses on building a secure and private way to share location data between devices on the same network. The core of the solution is a Flutter mobile application designed for direct communication.</p>
+
+    <h4 class="text-lg font-semibold text-blue-600 mb-2">1. Flutter Mobile Application</h4>
+    <ul class="list-disc list-inside ml-4 mb-3 space-y-1">
+      <li><strong>Location Services Integration:</strong> The Flutter app integrates with native device location services to accurately retrieve the current geographical coordinates.</li>
+      <li><strong>Network Communication:</strong> The app establishes a direct connection to a specified IP address within the local network. This allows for peer-to-peer or client-server communication without relying on external cloud services for data relay.</li>
+      <li><strong>Data Transmission:</strong> Location data is securely transmitted to the designated IP address. The implementation can include encryption for enhanced privacy, especially when operating over potentially less secure local networks.</li>
+      <li><strong>User Interface:</strong> A user-friendly interface allows users to easily input the target IP address, initiate location sharing, and receive feedback on the transmission status.</li>
+      <li><strong>VPN Compatibility:</strong> The design inherently supports usage over VPN services. When devices are connected to the same VPN, they effectively form a private network, enabling secure communication even if geographically dispersed. This enhances privacy and control over data flow.</li>
+    </ul>
+
+    <h4 class="text-lg font-semibold text-blue-600 mb-2">Potential Use Cases:</h4>
+    <ul class="list-disc list-inside ml-4 mb-3 space-y-1">
+      <li><strong>Family Location Sharing:</strong> Securely share location among family members within a home network or private VPN.</li>
+      <li><strong>Event Coordination:</strong> For small groups at an event, quickly share locations without needing public internet access or third-party services.</li>
+      <li><strong>Private Asset Tracking:</strong> Track the location of devices or assets within a controlled local environment.</li>
+    </ul>
+
+    <h4 class="text-lg font-semibold text-blue-600 mb-2">Project Links:</h4>
+    <ul class="list-disc list-inside ml-4 mb-3 space-y-1">
+      <li><strong>GitHub Repository (Flutter App):</strong> <a href="https://github.com/Jokku-gamma/LocationSender" target="_blank" class="text-blue-500 hover:underline">https://github.com/Jokku-gamma/LocationSender</a></li>
+    </ul>
+  </div>
+</section>
