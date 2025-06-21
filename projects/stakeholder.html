@@ -1,0 +1,51 @@
+<section class="project-card bg-white mx-auto my-8 p-6 rounded-xl shadow-lg">
+  <h2 class="text-2xl font-semibold text-blue-800 mb-4">AuthCheckApp: Multi-Stakeholder Login System</h2>
+
+  <p class="text-gray-700 mb-4">
+    This is a dummy Flutter mobile application demonstrating a multi-stakeholder login system. It features three distinct stakeholder roles, each with unique login credentials, and directs them to different pages upon successful authentication. All user data and authentication are managed using Firebase and Firestore.
+  </p>
+
+  <div class="flex flex-col sm:flex-row gap-4 mb-4">
+    <button
+      class="toggle-description-btn bg-cyan-500 hover:bg-cyan-600 text-white font-semibold py-2 px-4 rounded-lg shadow-md transition duration-300 ease-in-out transform hover:scale-105 focus:outline-none focus:ring-2 focus:ring-cyan-400 focus:ring-opacity-75"
+      onclick="toggleDescription(this)"
+    >
+      See Description
+    </button>
+    <a
+      href="https://github.com/Jokku-gamma/FlutterProjects/releases/download/v1.0.1/authcheckapp.apk"
+      download
+      class="download-apk-btn bg-blue-600 hover:bg-blue-700 text-white font-semibold py-2 px-4 rounded-lg shadow-md transition duration-300 ease-in-out transform hover:scale-105 text-center no-underline flex items-center justify-center"
+    >
+      <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"></path></svg>
+      Download APK
+    </a>
+  </div>
+
+  <div id="authcheckapp-description" class="description-content text-gray-800 leading-relaxed">
+    <h3 class="text-xl font-bold text-blue-700 mb-2">Project Description: AuthCheckApp</h3>
+    <p class="mb-3">This project is a demonstration of a secure and adaptable authentication system built with Flutter, Firebase, and Firestore, designed to manage multiple user roles or "stakeholders."</p>
+
+    <h4 class="text-lg font-semibold text-blue-600 mb-2">1. Flutter Mobile Application</h4>
+    <ul class="list-disc list-inside ml-4 mb-3 space-y-1">
+      <li><strong>Multi-Stakeholder Architecture:</strong> The app is structured to differentiate between three distinct user roles: **stakeholder1**, **stakeholder2**, and **stakeholder3**.</li>
+      <li><strong>Firebase Authentication:</strong> User logins are securely handled using Firebase Authentication, providing robust and scalable user management. Each stakeholder has a unique email and password for login.</li>
+      <li><strong>Firestore for Data Storage:</strong> User data and role-specific information are stored and managed efficiently using Firestore, ensuring real-time data synchronization.</li>
+      <li><strong>Dynamic Page Redirection:</strong> Upon successful login, users are automatically directed to specific pages tailored to their respective stakeholder roles, demonstrating role-based access control.</li>
+      <li><strong>Dummy Project:</strong> This project serves as a functional example of how to implement multi-role authentication in a Flutter application.</li>
+    </ul>
+
+    <h4 class="text-lg font-semibold text-blue-600 mb-2">Key Features:</h4>
+    <ul class="list-disc list-inside ml-4 mb-3 space-y-1">
+      <li>Secure user authentication with Firebase.</li>
+      <li>Role-based access control for different user types.</li>
+      <li>Dynamic navigation based on user roles.</li>
+      <li>Firestore integration for flexible data storage.</li>
+    </ul>
+
+    <h4 class="text-lg font-semibold text-blue-600 mb-2">Project Links:</h4>
+    <ul class="list-disc list-inside ml-4 mb-3 space-y-1">
+      <li><strong>GitHub Repository:</strong> <a href="https://github.com/Jokku-gamma/FlutterProjects/tree/main/AuthCheck/authcheck" target="_blank" class="text-blue-500 hover:underline">https://github.com/Jokku-gamma/FlutterProjects</a></li>
+    </ul>
+  </div>
+</section>

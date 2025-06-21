@@ -36,4 +36,5 @@ document.addEventListener('DOMContentLoaded', () => {
   loadProjectContent('movie-recommender-container', 'projects/movie_recc.html');
   loadProjectContent('location-sharing-container', 'projects/location_sharing.html');
   loadProjectContent('live-blur-container','projects/live_blurr.html')
+  loadProjectContent('auth-check-container','projects/stakeholder.html')
 });
