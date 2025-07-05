@@ -35,6 +35,7 @@ document.addEventListener('DOMContentLoaded', () => {
   loadProjectContent('handwritten-alphabet-recognition-container', 'projects/alpha_rec.html');
   loadProjectContent('movie-recommender-container', 'projects/movie_recc.html');
   loadProjectContent('location-sharing-container', 'projects/location_sharing.html');
-  loadProjectContent('live-blur-container','projects/live_blurr.html')
-  loadProjectContent('auth-check-container','projects/stakeholder.html')
+  loadProjectContent('live-blur-container','projects/live_blurr.html');
+  loadProjectContent('auth-check-container','projects/stakeholder.html');
+  loadProjectContent('face-swap-container','projects/face_swap.html');
 });
