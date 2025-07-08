@@ -32,11 +32,11 @@ async function loadProjectContent(containerId, filePath) {
 
 // Load all project contents when the DOM is ready
 document.addEventListener('DOMContentLoaded', () => {
-  loadProjectContent('handwritten-alphabet-recognition-container', '../projects/alpha_rec.html');
+  loadProjectContent('handwritten-alphabet-recognition-container', 'projects/alpha_rec.html');
   loadProjectContent('movie-recommender-container', 'projects/movie_recc.html');
+  loadProjectContent('face-swap-container', 'projects/face_swap.html');
   loadProjectContent('location-sharing-container', 'projects/location_sharing.html');
-  loadProjectContent('live-blur-container','projects/live_blurr.html');
-  loadProjectContent('auth-check-container','projects/stakeholder.html');
-  loadProjectContent('face-swap-container','projects/face_swap.html');
-  loadProjectContent('tictactoe-container','projects/tictactoe.html');
+  loadProjectContent('live-blur-container','projects/live_blurr.html')
+  loadProjectContent('auth-check-container','projects/stakeholder.html')
+  loadProjectContent('tictactoe-container', 'projects/tictactoe.html');
 });
