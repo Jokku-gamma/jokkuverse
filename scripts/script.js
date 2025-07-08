@@ -38,4 +38,5 @@ document.addEventListener('DOMContentLoaded', () => {
   loadProjectContent('live-blur-container','projects/live_blurr.html');
   loadProjectContent('auth-check-container','projects/stakeholder.html');
   loadProjectContent('face-swap-container','projects/face_swap.html');
+  loadProjectContent('tictactoe-container','projects/tictactoe.html');
 });
