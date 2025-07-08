@@ -32,7 +32,7 @@ async function loadProjectContent(containerId, filePath) {
 
 // Load all project contents when the DOM is ready
 document.addEventListener('DOMContentLoaded', () => {
-  loadProjectContent('handwritten-alphabet-recognition-container', 'projects/alpha_rec.html');
+  loadProjectContent('handwritten-alphabet-recognition-container', '../projects/alpha_rec.html');
   loadProjectContent('movie-recommender-container', 'projects/movie_recc.html');
   loadProjectContent('location-sharing-container', 'projects/location_sharing.html');
   loadProjectContent('live-blur-container','projects/live_blurr.html');
