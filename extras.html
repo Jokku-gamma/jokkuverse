@@ -3,11 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Joel's Creative Portfolio</title>
+    <title>Joel's Portfolio | Extras</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    
     <style>
         /* CSS Variables for easy theming */
         :root {
@@ -38,9 +39,9 @@
             display: flex;
             flex-direction: column;
             align-items: center;
-            justify-content: center;
+            justify-content: flex-start; /* Align content from top */
             padding: 20px;
-            overflow-x: hidden; /* Prevent horizontal scroll */
+            overflow-x: hidden;
         }
 
         /* Animations */
@@ -62,7 +63,7 @@
         /* Container for the main content */
         .portfolio-container {
             width: 100%;
-            max-width: 1000px; /* Max width for content */
+            max-width: 1000px;
             background-color: var(--secondary-bg);
             border-radius: 15px;
             box-shadow: 0 10px 30px var(--shadow-medium);
@@ -71,8 +72,9 @@
             flex-direction: column;
             align-items: center;
             animation: fadeIn 0.8s ease-out;
-            position: relative; /* For background patterns */
-            overflow: hidden; /* Ensures patterns don't overflow */
+            position: relative;
+            overflow: hidden;
+            margin-bottom: 20px; /* Added margin for pages content */
         }
 
         /* Abstract Background Pattern */
@@ -89,7 +91,7 @@
             opacity: 0.7;
         }
         .portfolio-container > *:not(.portfolio-container::before) {
-            position: relative; /* Ensure content is above the pseudo-element */
+            position: relative;
             z-index: 1;
         }
 
@@ -178,102 +180,178 @@
             box-shadow: 0 8px 20px var(--shadow-medium);
         }
 
-        /* Main Content */
-        .hero-section {
+        /* Page Specific Content Styles */
+        .page-content {
+            text-align: center;
+            padding: 40px 20px;
+            animation: scaleIn 0.8s ease-out 0.4s backwards;
+            flex-grow: 1; /* Allows content to take available space */
             display: flex;
             flex-direction: column;
-            align-items: center;
-            text-align: center;
-            margin-top: 40px;
-            animation: scaleIn 0.8s ease-out 0.4s backwards;
-        }
-
-        .profile-picture-wrapper {
-            width: 250px;
-            height: 250px;
-            border-radius: 50%;
-            border: 5px solid var(--accent-color);
-            padding: 5px; /* Space between border and image */
-            display: flex;
             justify-content: center;
             align-items: center;
-            margin-bottom: 30px;
-            position: relative;
-            overflow: hidden; /* Hide anything outside the circle */
-            box-shadow: 0 0 0 10px rgba(0, 123, 255, 0.1), /* Subtle outer glow */
-                        0 0 0 20px rgba(0, 123, 255, 0.05);
-            transition: transform 0.4s ease;
         }
 
-        .profile-picture-wrapper::before { /* Animated border effect */
-            content: '';
-            position: absolute;
-            top: -10%;
-            left: -10%;
-            width: 120%;
-            height: 120%;
-            border: 3px solid transparent;
-            border-top-color: #ffc107; /* Different accent color */
-            border-right-color: #dc3545; /* Different accent color */
-            border-radius: 50%;
-            animation: rotateBorder 8s linear infinite;
-            z-index: 2; /* Above primary border */
-        }
-
-        .profile-picture-wrapper:hover {
-            transform: scale(1.03);
-        }
-
-        .profile-picture {
-            width: 100%;
-            height: 100%;
-            border-radius: 50%;
-            object-fit: cover;
-            object-position: center;
-            display: block; /* Remove extra space below image */
-            box-shadow: inset 0 0 15px rgba(0, 0, 0, 0.2); /* Inner shadow for depth */
-            filter: grayscale(0.1); /* Slight desaturation */
-            transition: filter 0.3s ease;
-        }
-
-        .profile-picture:hover {
-            filter: grayscale(0); /* Full color on hover */
-        }
-
-        h1 {
+        .page-content h1 {
             font-family: 'Montserrat', sans-serif;
-            font-size: 3.5rem;
+            font-size: 3rem;
             font-weight: 700;
             color: var(--text-dark);
-            margin-bottom: 15px;
-            letter-spacing: -0.5px;
+            margin-bottom: 25px;
         }
 
-        .tagline {
-            font-size: 1.4rem;
+        .page-content p {
+            font-size: 1.2rem;
             color: var(--text-light);
-            max-width: 600px;
+            max-width: 700px;
             margin-bottom: 40px;
-            line-height: 1.5;
-            font-weight: 400;
         }
 
-        .social-links {
-            display: flex;
-            gap: 25px;
+        .content-card {
+            background-color: var(--primary-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            padding: 30px;
+            box-shadow: 0 5px 15px var(--shadow-light);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            width: 100%;
+            max-width: 500px;
             margin-top: 20px;
         }
 
-        .social-links a {
-            font-size: 1.8rem;
-            color: var(--text-light);
-            transition: color 0.3s ease, transform 0.3s ease;
+        .content-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px var(--shadow-medium);
         }
 
-        .social-links a:hover {
-            color: var(--accent-color);
-            transform: translateY(-3px);
+        .content-card h2 {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 1.8rem;
+            color: var(--text-dark);
+            margin-bottom: 20px;
         }
+
+        .content-card a {
+            display: inline-block;
+            background-color: var(--accent-color);
+            color: #fff;
+            padding: 12px 25px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1.1rem;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        .content-card a:hover {
+            background-color: var(--accent-hover);
+            transform: translateY(-2px);
+        }
+
+        /* Contact Page Specific */
+        .contact-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+            width: 100%;
+            margin-top: 40px;
+        }
+
+        .contact-info-card {
+            background-color: var(--primary-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            padding: 30px;
+            text-align: center;
+            box-shadow: 0 5px 15px var(--shadow-light);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .contact-info-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px var(--shadow-medium);
+        }
+
+        .contact-info-card i {
+            font-size: 2.5rem;
+            color: var(--accent-color);
+            margin-bottom: 20px;
+        }
+
+        .contact-info-card h3 {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 1.5rem;
+            color: var(--text-dark);
+            margin-bottom: 10px;
+        }
+
+        .contact-info-card p,
+        .contact-info-card a {
+            font-size: 1rem;
+            color: var(--text-light);
+            text-decoration: none;
+            word-break: break-word; /* For long URLs/emails */
+        }
+
+        .contact-info-card a:hover {
+            color: var(--accent-color);
+            text-decoration: underline;
+        }
+
+        /* More Websites Section */
+        .more-websites {
+            margin-top: 50px;
+            width: 100%;
+            text-align: center;
+        }
+
+        .more-websites h2 {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 2rem;
+            color: var(--text-dark);
+            margin-bottom: 30px;
+        }
+
+        .website-list {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+        }
+
+        .website-list a {
+            display: flex;
+            align-items: center;
+            background-color: var(--secondary-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 25px;
+            padding: 10px 20px;
+            text-decoration: none;
+            color: var(--text-dark);
+            font-weight: 500;
+            transition: all 0.3s ease;
+            box-shadow: 0 3px 10px var(--shadow-light);
+        }
+
+        .website-list a:hover {
+            background-color: var(--accent-color);
+            color: #fff;
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px var(--shadow-medium);
+        }
+
+        .website-list a i {
+            font-size: 1.5rem;
+            margin-right: 10px;
+            color: var(--accent-color); /* Default icon color */
+            transition: color 0.3s ease;
+        }
+
+        .website-list a:hover i {
+            color: #fff; /* Icon color on hover */
+        }
+
 
         /* Footer */
         footer {
@@ -301,26 +379,34 @@
                 gap: 20px;
             }
             .contact-button {
-                width: 100%; /* Full width button */
+                width: 100%;
                 text-align: center;
             }
-            h1 {
+            .page-content h1 {
                 font-size: 2.5rem;
             }
-            .tagline {
-                font-size: 1.2rem;
+            .page-content p {
+                font-size: 1.1rem;
             }
-            .profile-picture-wrapper {
-                width: 200px;
-                height: 200px;
+            .content-card {
+                padding: 25px;
+            }
+            .content-card h2 {
+                font-size: 1.6rem;
+            }
+            .contact-grid {
+                grid-template-columns: 1fr; /* Stack cards on small screens */
+            }
+            .more-websites h2 {
+                font-size: 1.7rem;
             }
         }
 
         @media (max-width: 480px) {
-            h1 {
+            .page-content h1 {
                 font-size: 2rem;
             }
-            .tagline {
+            .page-content p {
                 font-size: 1rem;
             }
             .nav-links {
@@ -333,14 +419,27 @@
             .logo {
                 font-size: 1.5rem;
             }
+            .contact-info-card {
+                padding: 20px;
+            }
+            .contact-info-card h3 {
+                font-size: 1.3rem;
+            }
+            .website-list a {
+                padding: 8px 15px;
+                font-size: 0.9rem;
+            }
+            .website-list a i {
+                font-size: 1.2rem;
+            }
         }
     </style>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
 <body>
     <div class="portfolio-container">
         <nav>
-            <a href="#" class="logo">Jokku</a> <div class="nav-links">
+            <a href="index.html" class="logo">Jokku</a>
+            <div class="nav-links">
                 <a href="projects.html">Projects</a>
                 <a href="extras.html">Extras</a>
                 <a href="media.html">Media</a>
@@ -348,18 +447,18 @@
             <a href="contact.html" class="contact-button">Contact Me</a>
         </nav>
 
-        <section class="hero-section">
-            <div class="profile-picture-wrapper">
-                <img src="data/profile.jpg" alt="Joel's Profile Picture" class="profile-picture">
-            </div>
-            <h1>Hi, I'm Jokku!</h1>
-            <p class="tagline">
-                An innovator passionate about crafting intelligent solutions at the intersection of AI, Robotics, and Creative Technology.
+        <section class="page-content">
+            <h1>Beyond the Core Portfolio</h1>
+            <p>
+                Explore other areas where I'm active and contributing, showcasing a broader spectrum of my interests and collaborations.
             </p>
-            <div class="social-links">
-                <a href="http://www.linkedin.com/in/joel-kurian-abraham"aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
-                <a href="https://github.com/Jokku-gamma" aria-label="GitHub"><i class="fab fa-github"></i></a>
-                <a href="https://www.instagram.com/jokku_alpha?igsh=ZnNsNWE3cmQwcjN4" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+
+            <div class="content-card">
+                <h2>MACE EU Website</h2>
+                <p>
+                    Discover my contributions and projects related to MACE EU(Evangelical Union) in collaboration with the Evangelical Union of India. This website serves as a platform to share resources, events, and updates about our initiatives.
+                </p>
+                <a href="https://jokku-gamma.github.io/MACE-EU/" target="_blank" rel="noopener noreferrer">Visit MACE EU Website <i class="fas fa-external-link-alt"></i></a>
             </div>
         </section>
     </div>
