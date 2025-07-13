@@ -1,4 +1,6 @@
 // script.js
+
+// This function remains the same
 function toggleDescription(button) {
   const projectCard = button.closest('.project-card');
   const descriptionDiv = projectCard.querySelector('.description-content');
@@ -15,7 +17,7 @@ function toggleDescription(button) {
   }
 }
 
-// Function to load HTML content into a div
+// Function to load HTML content into a div (remains the same)
 async function loadProjectContent(containerId, filePath) {
   try {
     const response = await fetch(filePath);
@@ -32,6 +34,7 @@ async function loadProjectContent(containerId, filePath) {
 
 // Load all project contents when the DOM is ready
 document.addEventListener('DOMContentLoaded', () => {
+  // Call your loadProjectContent functions
   loadProjectContent('handwritten-alphabet-recognition-container', 'projects/alpha_rec.html');
   loadProjectContent('movie-recommender-container', 'projects/movie_recc.html');
   loadProjectContent('face-swap-container', 'projects/face_swap.html');
@@ -39,4 +42,21 @@ document.addEventListener('DOMContentLoaded', () => {
   loadProjectContent('live-blur-container','projects/live_blurr.html')
   loadProjectContent('auth-check-container','projects/stakeholder.html')
   loadProjectContent('tictactoe-container', 'projects/tictactoe.html');
+
+  // --- NEW CODE FOR EVENT DELEGATION ---
+  // Attach a single click listener to the 'main' element or even the 'document.body'
+  // It's better to pick the closest static parent to the dynamic elements.
+  // In your case, the <main> tag is a good candidate.
+  const mainElement = document.querySelector('main'); // Or document.body if you prefer
+
+  mainElement.addEventListener('click', function(event) {
+    // Check if the clicked element (or any of its parents) has the class 'toggle-description-btn'
+    const clickedButton = event.target.closest('.toggle-description-btn');
+
+    if (clickedButton) {
+      // If it's one of your buttons, call the toggleDescription function
+      toggleDescription(clickedButton);
+    }
+  });
+  // --- END NEW CODE ---
 });
