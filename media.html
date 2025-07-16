@@ -10,7 +10,6 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     
     <style>
-        /* (PASTE THE ENTIRE <STYLE> BLOCK FROM INDEX.HTML HERE, INCLUDING ALL VARIABLES, ANIMATIONS, AND GENERAL STYLES) */
         /* CSS Variables for easy theming */
         :root {
             --primary-bg: #f8f8f8; /* Light background */
@@ -73,12 +72,12 @@
             flex-direction: column;
             align-items: center;
             animation: fadeIn 0.8s ease-out;
-            position: relative;
+            position: relative; /* For background patterns and z-index context */
             overflow: hidden;
             margin-bottom: 20px; /* Added margin for pages content */
         }
 
-        /* Abstract Background Pattern */
+        /* Abstract Background Pattern - now with z-index -1 */
         .portfolio-container::before {
             content: '';
             position: absolute;
@@ -88,16 +87,11 @@
             bottom: -50px;
             background: radial-gradient(circle at top left, rgba(0, 123, 255, 0.05) 0%, transparent 40%),
                         radial-gradient(circle at bottom right, rgba(255, 99, 71, 0.03) 0%, transparent 40%);
-            z-index: 0;
+            z-index: -1; /* Pushed to the very background */
             opacity: 0.7;
         }
-        .portfolio-container > *:not(.portfolio-container::before) {
-            position: relative;
-            z-index: 1;
-        }
 
-
-        /* Navbar */
+        /* Navbar - now with explicit z-index */
         nav {
             display: flex;
             justify-content: space-between;
@@ -107,6 +101,8 @@
             border-bottom: 1px solid var(--border-color);
             margin-bottom: 40px;
             animation: fadeIn 1s ease-out 0.2s backwards;
+            position: relative; /* Needed for z-index to work */
+            z-index: 2; /* Ensure nav is above background pattern */
         }
 
         .logo {
@@ -181,7 +177,7 @@
             box-shadow: 0 8px 20px var(--shadow-medium);
         }
 
-        /* Page Specific Content Styles */
+        /* Page Specific Content Styles - now with explicit z-index */
         .page-content {
             text-align: center;
             padding: 40px 20px;
@@ -191,6 +187,8 @@
             flex-direction: column;
             justify-content: center;
             align-items: center;
+            position: relative; /* Needed for z-index to work */
+            z-index: 1; /* Ensure page content is above background pattern */
         }
 
         .page-content h1 {
@@ -354,7 +352,7 @@
         }
 
 
-        /* Footer */
+        /* Footer - now with explicit z-index */
         footer {
             margin-top: 40px;
             padding-top: 20px;
@@ -364,6 +362,8 @@
             text-align: center;
             width: 100%;
             max-width: 1000px;
+            position: relative; /* Needed for z-index to work */
+            z-index: 1; /* Ensure footer is above background pattern */
         }
 
         /* Responsive Design */

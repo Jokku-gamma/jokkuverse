@@ -70,11 +70,11 @@
             flex-direction: column;
             align-items: center;
             animation: fadeIn 0.8s ease-out;
-            position: relative; /* For background patterns */
+            position: relative; /* For background patterns and z-index context */
             overflow: hidden; /* Ensures patterns don't overflow */
         }
 
-        /* Abstract Background Pattern */
+        /* Abstract Background Pattern - now with z-index -1 */
         .portfolio-container::before {
             content: '';
             position: absolute;
@@ -84,16 +84,11 @@
             bottom: -50px;
             background: radial-gradient(circle at top left, rgba(0, 123, 255, 0.05) 0%, transparent 40%),
                         radial-gradient(circle at bottom right, rgba(255, 99, 71, 0.03) 0%, transparent 40%);
-            z-index: 0;
+            z-index: -1; /* Pushed to the very background */
             opacity: 0.7;
         }
-        .portfolio-container > *:not(.portfolio-container::before) {
-            position: relative; /* Ensure content is above the pseudo-element */
-            z-index: 1;
-        }
 
-
-        /* Navbar */
+        /* Navbar - now with explicit z-index */
         nav {
             display: flex;
             justify-content: space-between;
@@ -103,6 +98,8 @@
             border-bottom: 1px solid var(--border-color);
             margin-bottom: 40px;
             animation: fadeIn 1s ease-out 0.2s backwards;
+            position: relative; /* Needed for z-index to work */
+            z-index: 2; /* Ensure nav is above background pattern */
         }
 
         .logo {
@@ -116,6 +113,7 @@
             text-decoration: none;
             transition: all 0.3s ease;
             box-shadow: 0 2px 5px var(--shadow-light);
+            /* z-index: 2;  Removed as nav's z-index should handle this */
         }
 
         .logo:hover {
@@ -168,6 +166,7 @@
             transition: all 0.3s ease;
             box-shadow: 0 5px 15px var(--shadow-light);
             border: none;
+            /* z-index: 2;  Removed as nav's z-index should handle this */
             cursor: pointer;
         }
 
@@ -177,7 +176,7 @@
             box-shadow: 0 8px 20px var(--shadow-medium);
         }
 
-        /* Main Content */
+        /* Main Content - now with explicit z-index */
         .hero-section {
             display: flex;
             flex-direction: column;
@@ -185,6 +184,8 @@
             text-align: center;
             margin-top: 40px;
             animation: scaleIn 0.8s ease-out 0.4s backwards;
+            position: relative; /* Needed for z-index to work */
+            z-index: 1; /* Ensure hero content is above background pattern */
         }
 
         .profile-picture-wrapper {
@@ -202,6 +203,7 @@
             box-shadow: 0 0 0 10px rgba(0, 123, 255, 0.1), /* Subtle outer glow */
                         0 0 0 20px rgba(0, 123, 255, 0.05);
             transition: transform 0.4s ease;
+            z-index: 1; /* Ensure picture is above its wrapper's pseudo-element */
         }
 
         .profile-picture-wrapper::before { /* Animated border effect */
@@ -216,7 +218,7 @@
             border-right-color: #dc3545; /* Different accent color */
             border-radius: 50%;
             animation: rotateBorder 8s linear infinite;
-            z-index: 2; /* Above primary border */
+            z-index: -1; /* Pushed behind the actual profile picture */
         }
 
         .profile-picture-wrapper:hover {
@@ -274,7 +276,7 @@
             transform: translateY(-3px);
         }
 
-        /* Footer */
+        /* Footer - now with explicit z-index */
         footer {
             margin-top: 40px;
             padding-top: 20px;
@@ -284,6 +286,8 @@
             text-align: center;
             width: 100%;
             max-width: 1000px;
+            position: relative; /* Needed for z-index to work */
+            z-index: 1; /* Ensure footer is above background pattern */
         }
 
         /* Responsive Design */
@@ -357,9 +361,8 @@
                 An innovator passionate about crafting intelligent solutions at the intersection of AI, Robotics, and Creative Technology.
             </p>
             <div class="social-links">
-                <a href="https://github.com/Jokku-gamma" aria-label="GitHub",target="_blank"><i class="fab fa-github"></i></a>
-                <a href="https://github.com/Jokku-gamma" aria-label="GitHub"><i class="fab fa-github"></i></a>
-                <a href="https://www.instagram.com/jokku_alpha?igsh=ZnNsNWE3cmQwcjN4" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                <a href="https://github.com/Jokku-gamma" aria-label="GitHub" target="_blank"><i class="fab fa-github"></i></a>
+                <a href="https://www.instagram.com/jokku_alpha?igsh=ZnNsNWE3cmQwcjN4" aria-label="Instagram" target="_blank"><i class="fab fa-instagram"></i></a>
             </div>
         </section>
     </div>
