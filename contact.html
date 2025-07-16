@@ -393,6 +393,19 @@
             box-shadow: 0 8px 20px var(--shadow-medium);
         }
 
+        /* Error message styling */
+        .error-message {
+            color: #dc3545; /* Red color for errors */
+            font-size: 0.9rem;
+            margin-top: 5px;
+            text-align: left;
+            display: none; /* Hidden by default */
+        }
+        .form-group.error input,
+        .form-group.error textarea {
+            border-color: #dc3545; /* Red border for invalid fields */
+        }
+
         /* More Websites Section - now with explicit z-index */
         .more-websites {
             margin-top: 50px;
@@ -572,7 +585,7 @@
 
             <div class="contact-form-section">
                 <h2>Send Me a Message</h2>
-                <form action="https://formspree.io/f/xvgqpgrv" method="POST">
+                <form id="contactForm" action="https://formspree.io/f/xvgqpgrv" method="POST">
                     <div class="form-group">
                         <label for="name">Your Name</label>
                         <input type="text" id="name" name="name" required>
@@ -580,6 +593,7 @@
                     <div class="form-group">
                         <label for="email">Your Email</label>
                         <input type="email" id="email" name="_replyto" required>
+                        <div class="error-message" id="emailError">Please enter a valid Gmail address (e.g., yourname@gmail.com).</div>
                     </div>
                     <div class="form-group">
                         <label for="phone">Your Phone Number (Optional)</label>
@@ -612,5 +626,47 @@
     <footer>
         <p>&copy; 2025 Joel. All Rights Reserved.</p>
     </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const contactForm = document.getElementById('contactForm');
+            const emailInput = document.getElementById('email');
+            const emailError = document.getElementById('emailError');
+
+            // Function to validate email format and check for Gmail domain
+            function isValidGmail(email) {
+                // Regex for a valid email address ending with @gmail.com
+                const gmailRegex = /^[^\s@]+@[^\s@]+\.com$/; // Updated to check for .com, you can make it more specific if needed
+                return gmailRegex.test(email) && email.toLowerCase().endsWith('@gmail.com');
+            }
+
+            // Event listener for form submission
+            contactForm.addEventListener('submit', function(event) {
+                let formIsValid = true;
+
+                // Email validation for Gmail
+                if (!isValidGmail(emailInput.value)) {
+                    emailError.style.display = 'block'; // Show error message
+                    emailInput.parentElement.classList.add('error'); // Add error class to parent for styling
+                    formIsValid = false;
+                } else {
+                    emailError.style.display = 'none'; // Hide error message
+                    emailInput.parentElement.classList.remove('error'); // Remove error class
+                }
+
+                if (!formIsValid) {
+                    event.preventDefault(); // Prevent form submission if validation fails
+                }
+            });
+
+            // Optional: Hide error message when user starts typing again
+            emailInput.addEventListener('input', function() {
+                if (isValidGmail(emailInput.value)) {
+                    emailError.style.display = 'none';
+                    emailInput.parentElement.classList.remove('error');
+                }
+            });
+        });
+    </script>
 </body>
 </html>
