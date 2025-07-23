@@ -42,6 +42,7 @@ document.addEventListener('DOMContentLoaded', () => {
   loadProjectContent('live-blur-container','projects/live_blurr.html')
   loadProjectContent('auth-check-container','projects/stakeholder.html')
   loadProjectContent('tictactoe-container', 'projects/tictactoe.html');
+  loadProjectContent('turingtest-container','projects/turingtestgame.html');
 
   // --- NEW CODE FOR EVENT DELEGATION ---
   // Attach a single click listener to the 'main' element or even the 'document.body'
