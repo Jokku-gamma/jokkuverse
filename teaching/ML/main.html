@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Under Maintenance - Jokku's Hub</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        /* CSS Variables - Consistent with your portfolio theme */
+        :root {
+            --primary-bg: #f0f2f5; /* Lighter background for maintenance page */
+            --secondary-bg: #ffffff;
+            --text-dark: #333333;
+            --text-light: #666666;
+            --accent-color: #007bff;
+            --accent-hover: #0056b3;
+            --border-color: #e0e0e0;
+            --shadow-light: rgba(0, 0, 0, 0.05);
+            --shadow-medium: rgba(0, 0, 0, 0.1);
+            --warning-color: #ffc107; /* Yellow for warning */
+        }
+
+        /* Base Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: var(--primary-bg);
+            color: var(--text-dark);
+            line-height: 1.6;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+            text-align: center;
+        }
+
+        /* Container for the maintenance message */
+        .maintenance-container {
+            background-color: var(--secondary-bg);
+            border-radius: 20px; /* More rounded */
+            box-shadow: 0 15px 40px var(--shadow-medium); /* Stronger shadow */
+            padding: 50px 40px;
+            max-width: 600px;
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            animation: fadeIn 0.8s ease-out;
+            position: relative;
+            overflow: hidden;
+            border: 1px solid var(--border-color);
+        }
+
+        /* Animated Gear Icon */
+        .maintenance-icon {
+            font-size: 5rem; /* Larger icon */
+            color: var(--warning-color); /* Warning color */
+            margin-bottom: 30px;
+            animation: spin 4s linear infinite; /* Continuous spin */
+            text-shadow: 0 5px 15px rgba(255, 193, 7, 0.3); /* Soft shadow for icon */
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        /* Main Heading */
+        h1 {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 3.2rem; /* Prominent heading */
+            font-weight: 700;
+            color: var(--accent-color);
+            margin-bottom: 20px;
+            letter-spacing: -0.5px;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.05);
+        }
+
+        /* Subtitle/Message */
+        p {
+            font-size: 1.2rem;
+            color: var(--text-light);
+            margin-bottom: 30px;
+            line-height: 1.7;
+            max-width: 500px;
+        }
+
+        /* Back to Home Button */
+        .home-button {
+            background: linear-gradient(45deg, var(--accent-color), var(--accent-hover)); /* Gradient */
+            color: #fff;
+            padding: 15px 35px;
+            border-radius: 30px; /* Pill-shaped */
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
+            box-shadow: 0 8px 20px rgba(0, 123, 255, 0.3);
+            border: none;
+            cursor: pointer;
+            display: inline-block;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .home-button:hover {
+            background: linear-gradient(45deg, var(--accent-hover), #004085);
+            transform: translateY(-3px) scale(1.02);
+            box-shadow: 0 12px 25px rgba(0, 123, 255, 0.4);
+        }
+
+        /* Footer */
+        footer {
+            margin-top: 40px;
+            color: var(--text-light);
+            font-size: 0.9rem;
+            opacity: 0.8;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .maintenance-container {
+                padding: 40px 30px;
+            }
+            .maintenance-icon {
+                font-size: 4rem;
+            }
+            h1 {
+                font-size: 2.5rem;
+            }
+            p {
+                font-size: 1rem;
+            }
+            .home-button {
+                padding: 12px 25px;
+                font-size: 1rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .maintenance-container {
+                padding: 30px 20px;
+            }
+            .maintenance-icon {
+                font-size: 3.5rem;
+            }
+            h1 {
+                font-size: 2rem;
+            }
+            p {
+                font-size: 0.9rem;
+            }
+            .home-button {
+                width: 100%;
+                box-sizing: border-box;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="maintenance-container">
+        <i class="fas fa-tools maintenance-icon"></i>
+        <h1>Under Maintenance</h1>
+        <p>
+            We're currently performing some essential updates to enhance your experience.
+            Please check back soon! We appreciate your patience.
+        </p>
+        <a href="index.html" class="home-button">Back to Home</a>
+    </div>
+    <footer>
+        <p>&copy; 2025 Joel. All Rights Reserved.</p>
+    </footer>
+</body>
+</html>

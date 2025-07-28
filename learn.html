@@ -1,0 +1,563 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Joel's Learn Hub</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        /* CSS Variables for easy theming - Consistent with index.html */
+        :root {
+            --primary-bg: #f8f8f8; /* Light background */
+            --secondary-bg: #ffffff; /* Card/Navbar background */
+            --text-dark: #333333;
+            --text-light: #666666;
+            --accent-color: #007bff; /* Primary blue for highlights */
+            --accent-hover: #0056b3;
+            --border-color: #e0e0e0;
+            --shadow-light: rgba(0, 0, 0, 0.05);
+            --shadow-medium: rgba(0, 0, 0, 0.1);
+        }
+
+        /* Base Styles - Consistent with index.html */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: var(--primary-bg);
+            color: var(--text-dark);
+            line-height: 1.6;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+            overflow-x: hidden; /* Prevent horizontal scroll */
+        }
+
+        /* Animations - Consistent with index.html */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(-20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes scaleIn {
+            from { transform: scale(0.9); opacity: 0; }
+            to { transform: scale(1); opacity: 1; }
+        }
+
+        /* Container for the main content - Consistent with index.html */
+        .portfolio-container {
+            width: 100%;
+            max-width: 1000px; /* Max width for content */
+            background-color: var(--secondary-bg);
+            border-radius: 15px;
+            box-shadow: 0 10px 30px var(--shadow-medium);
+            padding: 30px 40px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            animation: fadeIn 0.8s ease-out;
+            position: relative; /* For background patterns and z-index context */
+            overflow: hidden; /* Ensures patterns don't overflow */
+        }
+
+        /* Abstract Background Pattern - Consistent with index.html */
+        .portfolio-container::before {
+            content: '';
+            position: absolute;
+            top: -50px;
+            left: -50px;
+            right: -50px;
+            bottom: -50px;
+            background: radial-gradient(circle at top left, rgba(0, 123, 255, 0.05) 0%, transparent 40%),
+                        radial-gradient(circle at bottom right, rgba(255, 99, 71, 0.03) 0%, transparent 40%);
+            z-index: -1; /* Pushed to the very background */
+            opacity: 0.7;
+        }
+
+        /* Navbar - Consistent with index.html */
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 100%;
+            padding-bottom: 20px;
+            border-bottom: 1px solid var(--border-color);
+            margin-bottom: 40px;
+            animation: fadeIn 1s ease-out 0.2s backwards;
+            position: relative; /* Needed for z-index to work */
+            z-index: 2; /* Ensure nav is above background pattern */
+        }
+
+        .logo {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--text-dark);
+            padding: 8px 15px;
+            border: 2px solid var(--accent-color);
+            border-radius: 8px;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 5px var(--shadow-light);
+        }
+
+        .logo:hover {
+            background-color: var(--accent-color);
+            color: var(--secondary-bg);
+            box-shadow: 0 4px 10px var(--accent-color);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 30px;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--text-light);
+            font-weight: 500;
+            font-size: 1.1rem;
+            position: relative;
+            transition: color 0.3s ease;
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: -5px;
+            width: 0;
+            height: 2px;
+            background-color: var(--accent-color);
+            transition: width 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            color: var(--accent-color);
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        /* Active link style for navigation */
+        .nav-links a.active-link {
+            color: var(--accent-color);
+            font-weight: 600;
+        }
+        .nav-links a.active-link::after {
+            width: 100%;
+            background-color: var(--accent-color);
+        }
+
+        .contact-button {
+            background-color: var(--accent-color);
+            color: #fff;
+            padding: 10px 25px;
+            border-radius: 25px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 15px var(--shadow-light);
+            border: none;
+            cursor: pointer;
+        }
+
+        .contact-button:hover {
+            background-color: var(--accent-hover);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px var(--shadow-medium);
+        }
+
+        /* Main Content Area for Learn Page */
+        .learn-main-content {
+            display: flex;
+            width: 100%;
+            gap: 30px;
+            margin-top: 40px;
+            animation: fadeIn 0.8s ease-out 0.4s backwards;
+            position: relative;
+            z-index: 1; /* Ensure content is above background pattern */
+        }
+
+        /* Sidebar for navigation within the learn page */
+        .sidebar {
+            flex: 0 0 250px; /* Fixed width sidebar */
+            background-color: var(--secondary-bg);
+            padding: 25px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px var(--shadow-light);
+            align-self: flex-start; /* Stick to the top */
+        }
+
+        .sidebar h2 {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 1.6rem;
+            color: var(--text-dark);
+            margin-bottom: 20px;
+            border-bottom: 1px solid var(--border-color);
+            padding-bottom: 10px;
+        }
+
+        .sidebar ul {
+            list-style: none;
+        }
+
+        .sidebar ul li {
+            margin-bottom: 15px;
+        }
+
+        .sidebar-link {
+            text-decoration: none;
+            color: var(--text-light);
+            font-weight: 500;
+            font-size: 1.05rem;
+            display: block;
+            padding: 8px 10px;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+        }
+
+        .sidebar-link:hover {
+            background-color: var(--primary-bg);
+            color: var(--accent-color);
+            transform: translateX(5px);
+        }
+
+        /* Active style for sidebar links */
+        .sidebar-link.active {
+            background-color: var(--accent-color);
+            color: #fff;
+            box-shadow: 0 3px 10px rgba(0, 123, 255, 0.2);
+            font-weight: 600;
+        }
+
+        /* Content display area for learning modules */
+        .content-display {
+            flex-grow: 1; /* Takes remaining space */
+            background-color: var(--secondary-bg);
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px var(--shadow-light);
+            min-height: 400px; /* Ensure some height even if content is small */
+            display: flex; /* Use flexbox for content display */
+            flex-direction: column; /* Stack content vertically */
+            justify-content: flex-start; /* Align content to the top */
+        }
+
+        /* Styles for content loaded into .content-display */
+        .content-display h2 {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 2.2rem;
+            color: var(--text-dark);
+            margin-bottom: 20px;
+            border-bottom: 2px solid var(--border-color);
+            padding-bottom: 10px;
+        }
+
+        .content-display h3 {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 1.6rem;
+            color: var(--accent-color);
+            margin-top: 25px;
+            margin-bottom: 15px;
+        }
+
+        .content-display p {
+            font-size: 1.1rem;
+            color: var(--text-light);
+            margin-bottom: 15px;
+            line-height: 1.7;
+        }
+
+        .content-display ul {
+            list-style: disc;
+            margin-left: 20px;
+            margin-bottom: 15px;
+            color: var(--text-light);
+        }
+
+        .content-display ul li {
+            margin-bottom: 8px;
+        }
+
+        .content-display pre {
+            background-color: #e9ecef;
+            padding: 15px;
+            border-radius: 8px;
+            overflow-x: auto;
+            font-family: 'Consolas', 'Monaco', 'Courier New', monospace;
+            font-size: 0.95rem;
+            margin-bottom: 20px;
+            border: 1px solid var(--border-color);
+        }
+
+        .content-display code {
+            color: #d63384; /* Pink for inline code */
+            font-weight: 600;
+        }
+
+        /* Loading indicator styles */
+        .loading-indicator {
+            display: none; /* Hidden by default */
+            text-align: center;
+            padding: 20px;
+            font-size: 1.2rem;
+            color: var(--accent-color);
+        }
+        .loading-indicator.active {
+            display: block;
+        }
+
+        /* Button style for 'Start Learning' */
+        .start-learning-btn {
+            background-color: var(--accent-color);
+            color: #fff;
+            padding: 12px 30px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 15px var(--shadow-light);
+            border: none;
+            cursor: pointer;
+            display: inline-block; /* Allows text-align on parent */
+            margin-top: 20px;
+        }
+
+        .start-learning-btn:hover {
+            background-color: var(--accent-hover);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px var(--shadow-medium);
+        }
+
+
+        /* Footer - Consistent with index.html */
+        footer {
+            margin-top: 40px;
+            padding-top: 20px;
+            border-top: 1px solid var(--border-color);
+            color: var(--text-light);
+            font-size: 0.9rem;
+            text-align: center;
+            width: 100%;
+            max-width: 1000px;
+            position: relative; /* Needed for z-index to work */
+            z-index: 1; /* Ensure footer is above background pattern */
+        }
+
+        /* Responsive Design - Consistent with index.html and specific for learn.html */
+        @media (max-width: 768px) {
+            .portfolio-container {
+                padding: 20px 25px;
+            }
+            nav {
+                flex-direction: column;
+                align-items: center;
+                gap: 20px;
+            }
+            .nav-links {
+                gap: 20px;
+            }
+            .contact-button {
+                width: 100%; /* Full width button */
+                text-align: center;
+            }
+            /* Learn page specific responsiveness */
+            .learn-main-content {
+                flex-direction: column;
+                gap: 20px;
+            }
+            .sidebar {
+                flex: none; /* Remove fixed width */
+                width: 100%; /* Full width */
+                padding: 20px;
+            }
+            .sidebar h2 {
+                text-align: center;
+            }
+            .sidebar ul {
+                display: flex; /* Make sidebar links horizontal */
+                flex-wrap: wrap;
+                justify-content: center;
+                gap: 10px;
+            }
+            .sidebar ul li {
+                margin-bottom: 0;
+            }
+            .sidebar-link {
+                padding: 6px 12px;
+                font-size: 0.95rem;
+            }
+            .content-display {
+                padding: 25px;
+            }
+            .content-display h2 {
+                font-size: 1.8rem;
+            }
+            .content-display h3 {
+                font-size: 1.4rem;
+            }
+            .content-display p {
+                font-size: 1rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .logo {
+                font-size: 1.5rem;
+            }
+            .nav-links {
+                flex-direction: column;
+                gap: 15px;
+            }
+            .nav-links a {
+                font-size: 1rem;
+            }
+            .content-display {
+                padding: 20px;
+            }
+            .content-display h2 {
+                font-size: 1.5rem;
+            }
+            .sidebar h2 {
+                font-size: 1.4rem;
+            }
+            .sidebar ul {
+                flex-direction: column; /* Stack links vertically on very small screens */
+                align-items: center;
+            }
+        }
+    </style>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <div class="portfolio-container">
+        <nav>
+            <a href="index.html" class="logo">Jokku</a>
+            <div class="nav-links">
+                <a href="projects.html">Projects</a>
+                <a href="extras.html">Extras</a>
+                <a href="media.html">Media</a>
+                <a href="learn.html" class="active-link">Learn</a> <!-- 'active-link' class added for current page -->
+            </div>
+            <a href="contact.html" class="contact-button">Contact Me</a>
+        </nav>
+
+        <main class="learn-main-content">
+            <aside class="sidebar">
+                <h2>Topics</h2>
+                <ul>
+                    <!-- Data attributes store the path to the external HTML file -->
+                    <li><a href="#" data-path="teaching/Python/main.html" class="sidebar-link">Python Programming</a></li>
+                    <li><a href="#" data-path="teaching/ML/main.html" class="sidebar-link">Machine Learning Basics</a></li>
+
+                    <li><a href="#" data-path="teaching/C/main.html" class="sidebar-link">C Programming</a></li>
+                    <li><a href="#" data-path="teaching/Flutter/main.html" class="sidebar-link">Flutter Development</a></li>
+                </ul>
+            </aside>
+            <section class="content-display">
+                <div class="loading-indicator" id="loading-spinner">Loading content...</div>
+                <!-- Content will be loaded here dynamically -->
+            </section>
+        </main>
+    </div>
+
+    <footer>
+        <p>&copy; 2025 Joel. All Rights Reserved.</p>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const sidebarLinks = document.querySelectorAll('.sidebar-link');
+            const contentDisplay = document.querySelector('.content-display');
+            const loadingSpinner = document.getElementById('loading-spinner');
+
+            // Function to attach event listeners to dynamically loaded content
+            const attachDynamicEventListeners = () => {
+                const startLearningButton = contentDisplay.querySelector('.start-learning-btn');
+                if (startLearningButton) {
+                    startLearningButton.addEventListener('click', (event) => {
+                        event.preventDefault();
+                        const targetPath = event.target.dataset.targetPath;
+                        if (targetPath) {
+                            loadModule(targetPath);
+                            // Keep the Python sidebar link active if navigating within Python lessons
+                            // This assumes the 'Python Programming' sidebar link is the one that was initially clicked
+                            // or that we want to keep it highlighted as long as we are in Python content.
+                            const pythonSidebarLink = document.querySelector('.sidebar-link[data-path="teaching/Python/intro.html"]');
+                            if (pythonSidebarLink) {
+                                updateActiveLink(pythonSidebarLink);
+                            }
+                        }
+                    });
+                }
+                // Add other dynamic event listeners here if needed for other buttons/elements
+            };
+
+            // Function to show a specific module by fetching its content
+            const loadModule = async (filePath) => {
+                contentDisplay.innerHTML = ''; // Clear current content
+                loadingSpinner.classList.add('active'); // Show loading spinner
+
+                try {
+                    const response = await fetch(filePath);
+                    if (!response.ok) {
+                        throw new Error(`HTTP error! status: ${response.status}`);
+                    }
+                    const content = await response.text();
+                    contentDisplay.innerHTML = content; // Insert fetched content
+                    attachDynamicEventListeners(); // Attach listeners to the newly loaded content
+                } catch (error) {
+                    console.error('Error loading module:', error);
+                    contentDisplay.innerHTML = `<p style="color: red; text-align: center;">Failed to load content. Please check the file path and try again.</p>`;
+                } finally {
+                    loadingSpinner.classList.remove('active'); // Hide loading spinner
+                }
+            };
+
+            // Function to update active link in sidebar
+            const updateActiveLink = (clickedLink) => {
+                sidebarLinks.forEach(link => {
+                    link.classList.remove('active');
+                });
+                clickedLink.classList.add('active');
+            };
+
+            // Add click listeners to sidebar links
+            sidebarLinks.forEach(link => {
+                link.addEventListener('click', (event) => {
+                    event.preventDefault(); // Prevent default anchor jump behavior
+                    const filePath = event.target.dataset.path; // Get the file path from data-path attribute
+                    if (filePath) {
+                        loadModule(filePath);
+                        updateActiveLink(event.target);
+                    }
+                });
+            });
+
+            // Load the first module by default on page load
+            // This logic will now load teaching/ML/intro.html first.
+            if (sidebarLinks.length > 0) {
+                const initialLink = sidebarLinks[0];
+                const initialFilePath = initialLink.dataset.path;
+                if (initialFilePath) {
+                    loadModule(initialFilePath);
+                    updateActiveLink(initialLink);
+                }
+            }
+        });
+    </script>
+</body>
+</html>
